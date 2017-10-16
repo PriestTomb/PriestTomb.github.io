@@ -1,0 +1,25 @@
+<div class="entry page">
+
+	<div class="entry-content">
+
+	  <header>
+	    <p class="entry-meta">
+		    {{ page.date | date: "%b %-d, %Y" }}
+		    {% if page.category %} • Category: {{ page.category|capitalize }}{% endif %}
+	    </p>
+	  </header>
+
+	  <article class="entry-body">
+	  	{% if content %}
+	  		{{ content }}
+  		{% else %}
+	  		{{ page.excerpt }}
+	  		{% if page.content contains '<!-- more -->' %}
+	  		<p><a href="{{ page.url }}">Read more »</a></p>
+	  		{% endif %}
+  		{% endif %}
+	  </article>
+
+  </div>
+
+</div>

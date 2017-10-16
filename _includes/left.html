@@ -1,0 +1,25 @@
+<div class="left">
+	<div class="avatar">
+	    <img class="profile-avatar" src="{{ site.author_avatar }}" height="140px" width="140px" />
+		<h2 class="author-name">{{ site.author }}</h2>
+	</div>
+	<div class="social">
+		<ul>
+		{% for link in site.social %}
+			<li><a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}"></i></a></li>
+		{% endfor %}
+		</ul>
+	</div>
+	<br/>
+	<div class="menu">
+	    {% assign current = page.title %}
+	    <a href="/" class="page-link{% if current == null %} active{% endif %}">Blog</a>
+	    {% for page in site.pages %}
+	    {% if page.title and page.permalink != "/404.html" %}
+	      <a class="page-link{% if current == page.title %} active{% endif %}"
+	        href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+	    {% endif %}
+	    {% endfor %}
+	    <a href="/feed.xml" target="_blank" class="page-link">RSS</a>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="entry post">
+
+	<div class="entry-content">
+	  <article class="entry-body">
+	  	{% if content %}
+	  		{{ content }}
+  		{% else %}
+	  		{{ page.excerpt }}
+	  		{% if page.content contains '<!-- more -->' %}
+	  		<p><a href="{{ page.url }}">Read more »</a></p>
+	  		{% endif %}
+  		{% endif %}
+	  </article>
+    </div>
+
+</div>
+
+<div class="article-meta">
+    {{ page.date | date: "%Y-%m-%d" }}
+    {% if page.categories %} • Category: 
+        {% for category in page.categories %}
+        <a href="/{{site.categories_path}}/#{{category}}-ref" >{{ category|capitalize }}</a>
+        {% endfor%}
+    {% endif %}
+    {% if page.tags %} • Tag: 
+        {% for tag in page.tags %}
+            <a href="/{{site.tags_path}}/#{{tag}}-ref" >{{ tag|capitalize }}</a>
+        {% endfor%}
+    {% endif %}
+</div>
+
+{% if content and page.author_footer != false %}
+
+
+{% endif %}
