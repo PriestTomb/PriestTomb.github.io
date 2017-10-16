@@ -61,7 +61,7 @@ em {
         font-size: 25px;
         line-height: normal;
         vertical-align: middle;
-        
+
         a {
             color: black;
             text-decoration: none;
@@ -191,7 +191,7 @@ em {
   margin: 0 5px;
 }
 .social li a {
-  font-size: 16px;
+  font-size: 30px;
   color: #969394;
 }
 .social li a:hover {
@@ -297,9 +297,9 @@ em {
         }
 
         ul li {
-            list-style-type: none; 
+            list-style-type: none;
         }
-    } 
+    }
 }
 
 /** post */
@@ -319,7 +319,7 @@ em {
             margin-end:0;
         }
     }
-} 
+}
 
 .cnzz {
     a {display: none}
@@ -410,10 +410,9 @@ em {
         img {
             display: none;
         }
-    } 
+    }
 }
 
 
 @import "base";
 @import "syntax-highlighting";
-
