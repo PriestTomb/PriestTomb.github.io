@@ -1,13 +1,55 @@
 <div class="left">
 	<div class="avatar">
-	    <img class="profile-avatar" src="{{ site.author_avatar }}" height="140px" width="140px" />
-		<h2 class="author-name">{{ site.author }}</h2>
+	    <img class="profile-avatar" src="{{ site.author_avatar }}" height="190px" width="190px" />
+			<h2 class="author-name">{{ site.author }}</h2>
 	</div>
+	<br/>
+	<!--<div class="label">
+			<h3>&emsp;&emsp;{{ site.personal_label }}</h3>
+	</div>
+	<br/>-->
 	<div class="social">
 		<ul>
-		{% for link in site.social %}
-			<li><a href="{{ link.link }}" target="_blank"><i class="fa {{ link.icon }}"></i></a></li>
-		{% endfor %}
+			{% if site.twitter_username %}
+			<li>
+          <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}">
+              <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+          </a>
+      </li>
+			{% endif %}
+			{% if site.github_username %}
+			<li>
+          <a target="_blank" href="https://github.com/{{ site.github_username }}">
+              <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+          </a>
+      </li>
+			{% endif %}
+			{% if site.zhihu_username %}
+			<li>
+	        <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
+	            <span class="fa-stack fa-lg">
+	                <i class="fa fa-circle fa-stack-2x"></i>
+	                <i class="fa fa-stack-1x fa-inverse">知</i>
+	            </span>
+	        </a>
+	    </li>
+			{% endif %}
+			{% if site.my_email %}
+			<li>
+	        <a target="_blank" href="mailto:{{ site.my_email }}">
+	            <span class="fa-stack fa-lg">
+	                <i class="fa fa-circle fa-stack-2x"></i>
+	                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+	            </span>
+	        </a>
+	    </li>
+			{% endif %}
 		</ul>
 	</div>
 	<br/>

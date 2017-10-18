@@ -147,8 +147,8 @@ em {
 
 /** menu **/
 .menu {
-    width: 9em;
-    margin-left: -12em;
+    width: 12em;
+    margin-left: -15em;
     text-transform: uppercase;
     font-family: "Electrolize",sans-serif;
 
@@ -161,37 +161,38 @@ em {
 
         &:hover, &.active{
             color: #FFF;
-            background-color: #000;
+            background-color: #363636;
         }
     }
 }
 
 /** avatar **/
 .avatar {
-    width: 9em;
-    margin-left: -12em;
+    width: 12em;
+    margin-left: -15em;
     font-family: "Electrolize",sans-serif;
+    text-align: center;
+}
 
+.label {
+  width: 12em;
+  margin-left: -15em;
+  font-family: "Electrolize",sans-serif;
+  word-break: normal;
 }
 
 /* Social Icons */
 .social{
-    width: 9em;
-    margin-left: -12em;
+    width: 12em;
+    margin-left: -15em;
     display: block;
+    text-align: center;
   /**margin: 10px 0;**/
 }
-.social ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.social ul li {
+.social li {
   display: inline-block;
-  margin: 0 5px;
 }
 .social li a {
-  font-size: 30px;
   color: #969394;
 }
 .social li a:hover {

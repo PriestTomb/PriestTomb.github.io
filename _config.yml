@@ -8,12 +8,12 @@ github_username: priesttomb
 github_site_repo: priesttomb/priesttomb.github.io
 
 
-social:
-    - icon: fa-twitter
-      link: "https://twitter.com/PriestTomb"
-    - icon: fa-github
-      link: "https://github.com/PriestTomb"
+github_username: PriestTomb
+zhihu_username: mu-xiao-mu-60
+twitter_username: PriestTomb
+my_email: Mxingzh@163.com
 
+personal_label: 弱渣coder/爱好广泛无一专精
 
 # Build settings
 highlighter: rouge
@@ -34,4 +34,4 @@ categories_path: categories/
 tags_path: tags/
 
 
-#plugins: 
+#plugins:
