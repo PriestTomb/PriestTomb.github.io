@@ -17,12 +17,12 @@
 
 <div class="article-meta">
     {{ page.date | date: "%Y-%m-%d" }}
-    {% if page.categories %} • Category: 
+    {% if page.categories %} • Category:
         {% for category in page.categories %}
         <a href="/{{site.categories_path}}/#{{category}}-ref" >{{ category|capitalize }}</a>
         {% endfor%}
     {% endif %}
-    {% if page.tags %} • Tag: 
+    {% if page.tags %} • Tag:
         {% for tag in page.tags %}
             <a href="/{{site.tags_path}}/#{{tag}}-ref" >{{ tag|capitalize }}</a>
         {% endfor%}
