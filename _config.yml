@@ -35,4 +35,8 @@ categories_path: categories/
 tags_path: tags/
 
 
-#plugins:
+plugins: [jekyll-paginate]
+
+# 分页
+paginate: 10
+paginate_path: "/page/:num/"

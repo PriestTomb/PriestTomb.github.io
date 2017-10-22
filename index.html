@@ -8,15 +8,8 @@ layout: default
   	{% assign year  = '' %}
 
     <ul class="article-list">
-    {% for post in site.posts %}
-		{% assign page = post %}
-        <!--{% assign date = page.date | date: "%Y" %}
-
-        {% if year != date %}
-            {% assign year = date %}
-            <li class="list-year"> {{year}} </li>
-        {% endif%}-->
-
+    {% for post in paginator.posts %}
+    {% assign page = post %}
         <li class="list-item">
             <a href="{{ page.url }}">
                 <div>
@@ -30,6 +23,34 @@ layout: default
         </li>
         <hr/>
     {% endfor %}
-</ul>
+    </ul>
+
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination modal-2">
+      {% if paginator.previous_page %}
+        <li><a class="prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; </a></li>
+      {% else %}
+        <li><a class="prev">&laquo; </a></li>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li><a class="active" href="#">{{ page }}</a></li>
+        {% elsif page == 1 %}
+          <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+        {% else %}
+          <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <li><a class="next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"> &raquo;</a></li>
+      {% else %}
+        <li><a class="next"> &raquo;</a></li>
+      {% endif %}
+    </div>
+    {% endif %}
 
 </div>
+
+<br/>
