@@ -19,6 +19,19 @@ Java努力深入中，Python、Vue什么的都想学学学啊
 ---
 
 ## 相关链接
+
 [原CSDN博客](http://blog.csdn.net/mxmxz)：有一些没(懒得)迁移的博客
 
 [本站源码](https://github.com/PriestTomb/PriestTomb.github.io)：喜欢可叉，欢迎改造
+
+---
+
+## 感谢
+
+本站的模板样式参考学习了以下个人网站：
+
+[生命不止，折腾不息](http://dongyado.com/)
+
+[柏荧的博客](http://qiubaiying.top/)
+
+[Agus Makmun](https://agusmakmun.github.io/)
