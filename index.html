@@ -10,16 +10,25 @@ layout: default
     <ul class="article-list">
     {% for post in site.posts %}
 		{% assign page = post %}
-        {% assign date = page.date | date: "%Y" %}
+        <!--{% assign date = page.date | date: "%Y" %}
 
         {% if year != date %}
             {% assign year = date %}
             <li class="list-year"> {{year}} </li>
-        {% endif%}
+        {% endif%}-->
 
         <li class="list-item">
-            <span class="list-date" >{{ page.date | date: "%Y-%m-%d" }}</span> <a href="{{ page.url }}">{{ page.title }}</a>
+            <a href="{{ page.url }}">
+                <div>
+                    <h3 style="list-title">{{ page.title }}</h3>
+                </div>
+                <div class="list-preview">
+                    {{ post.content | strip_html | truncate:150 }}
+                </div>
+            </a>
+            <span class="list-date">—— Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
         </li>
+        <hr/>
     {% endfor %}
 </ul>
 

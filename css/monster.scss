@@ -355,15 +355,29 @@ em {
     }
 }
 
+/** 首页文章列表 **/
 .article-list {
     margin-top: 10px;
-    .list-year {font-size: 20px; height: 30px; line-height: 30px;}
+    .list-year {
+        font-size: 20px;
+        height: 30px;
+        line-height: 30px;
+    }
     .list-item {
         font-size: 16px;
-        margin-left: 2em;
+        margin: 20px 5px 20px 5px; //2em;
         line-height: 30px;
         span {color: #999}
-        a {padding: .2em 1em}
+    }
+    .list-title {
+
+    }
+    .list-preview {
+        color: #000;
+    }
+    .list-date {
+        font-family: Lora,'Times New Roman',serif;color:gray;font-size:18px;
+        font-style: oblique;
     }
 }
 
