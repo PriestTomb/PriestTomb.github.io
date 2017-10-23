@@ -14,11 +14,11 @@ zhihu_username: mu-xiao-mu-60
 twitter_username: PriestTomb
 my_email: Mxingzh@163.com
 
-highlighter: pygments
+highlighter: rouge
 markdown: kramdown
 kramdown:
   input:  GFM
-  syntax_highlighter: pygments
+  syntax_highlighter: rouge
   extensions: ["fenced_code_blocks", "autolink", "tables", "smart"]
 
 sass:
