@@ -52,7 +52,7 @@ em {
 }
 
 .header {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 2px solid black;
     margin: 40px auto 0 auto;
 
@@ -103,6 +103,44 @@ em {
             vertical-align: top;
             margin-right: 2px;
         }
+    }
+
+    .top-personinfo {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    // .top-up {
+    //     height: 100px;
+    //     position: relative;
+    // }
+
+    .top-avatar {
+        display: none;
+        float: left;
+        vertical-align: text-bottom;
+    }
+
+    .top-social{
+        width: 200px;
+        display: none;
+        margin-left: 110px;
+        bottom: 0px;
+        position: absolute;
+        //margin-top:
+    }
+    .top-social li {
+      display: inline-block;
+    }
+    .top-social li a {
+      color: #969394;
+    }
+    .top-social li a:hover {
+      color: #6D6D6D;
+    }
+
+    .top-author {
+        display: none;
     }
 }
 
@@ -172,13 +210,7 @@ em {
     margin-left: -15em;
     font-family: "Electrolize",sans-serif;
     text-align: center;
-}
-
-.label {
-  width: 12em;
-  margin-left: -15em;
-  font-family: "Electrolize",sans-serif;
-  word-break: normal;
+    display: block;
 }
 
 /* Social Icons */
@@ -187,7 +219,6 @@ em {
     margin-left: -15em;
     display: block;
     text-align: center;
-  /**margin: 10px 0;**/
 }
 .social li {
   display: inline-block;
@@ -326,9 +357,17 @@ em {
     a {display: none}
 }
 
+.article-title {
+    margin-top: 10px;
+}
+
+.truly-title {
+    font-size: 24px;
+}
+
 .article-meta  {
     text-align: right;
-    margin: 15px 0 10px 0;
+    margin: 10px 0 10px 0;
     color: #999;
 }
 /** page */
@@ -391,7 +430,8 @@ em {
         width: 25px;
     }
 
-    .menu {display: none}
+    //宽度不足时隐藏左侧，改为顶部显示
+    .left {display: none}
 
     .header .links {
         display: block;
@@ -406,6 +446,27 @@ em {
         .github-link img {
             display: none;
         }
+    }
+
+    .header .top-personinfo {
+        display: block;
+    }
+
+    .header .top-up {
+        height: 100px;
+        position: relative;
+    }
+
+    .header .top-avatar {
+        display: block;
+    }
+
+    .header .top-social {
+        display: block;
+    }
+
+    .header .top-author {
+        display: block;
     }
 
     .wrapper {

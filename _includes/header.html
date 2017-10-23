@@ -1,22 +1,72 @@
 <header class="header">
 
   <div class="site-title">
-    {% if page.title %}
-    <h4 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h4>
-    {% else%}
+    <img src="/images/favicon.ico" style="width: 34px;" />
     <a href="/">{{ site.title }}</a>
-    {% endif %}
   </div>
 
-<!--<div class="links">
-    {% assign current = page.title %}
-    <a href="/" class="page-link{% if current == null %} active{% endif %}">Blog</a>
-    {% for page in site.pages %}
-    {% if page.title and page.permalink != "/404.html" %}
-      <a class="page-link{% if current == page.title %} active{% endif %}"
-        href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-    {% endif %}
-    {% endfor %}
-    <a href="/feed.xml" target="_blank" class="page-link">RSS</a>
-</div>-->
+  <div class="top-personinfo">
+    <div class="top-up">
+      <img class="top-avatar" src="{{ site.author_avatar }}" height="100px" width="100px" />
+
+      <div class="top-social">
+    		<ul>
+    			{% if site.twitter_username %}
+    			<li>
+              <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+          </li>
+    			{% endif %}
+    			{% if site.github_username %}
+    			<li>
+              <a target="_blank" href="https://github.com/{{ site.github_username }}">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+          </li>
+    			{% endif %}
+    			{% if site.zhihu_username %}
+    			<li>
+    	        <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
+    	            <span class="fa-stack fa-lg">
+    	                <i class="fa fa-circle fa-stack-2x"></i>
+    	                <i class="fa fa-stack-1x fa-inverse">知</i>
+    	            </span>
+    	        </a>
+    	    </li>
+    			{% endif %}
+    			{% if site.my_email %}
+    			<li>
+    	        <a target="_blank" href="mailto:{{ site.my_email }}">
+    	            <span class="fa-stack fa-lg">
+    	                <i class="fa fa-circle fa-stack-2x"></i>
+    	                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+    	            </span>
+    	        </a>
+    	    </li>
+    			{% endif %}
+    		</ul>
+    	</div>
+    </div>
+
+    <h3 class="top-author">{{ site.author }}</h3>
+  </div>
+
+  <div class="links">
+      {% assign current = page.title %}
+      <a href="/" class="page-link{% if current == null %} active{% endif %}">Blog</a>
+      {% for page in site.pages %}
+      {% if page.title and page.permalink != "/404.html" %}
+        <a class="page-link{% if current == page.title %} active{% endif %}"
+          href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      {% endif %}
+      {% endfor %}
+      <a href="/feed.xml" target="_blank" class="page-link">RSS</a>
+  </div>
 </header>
