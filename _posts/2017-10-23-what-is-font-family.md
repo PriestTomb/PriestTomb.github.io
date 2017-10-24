@@ -28,7 +28,7 @@ WHAT??? 这一长串都是啥？
 
 > Serif的意思是，在字的笔划开始及结束的地方有额外的装饰，而且笔划的粗细会因直横的不同而有不同。相反的，Sans Serif则没有这些额外的装饰，笔划粗细大致差不多。如下图：
 >
-> ![Serif和Sans Serif的区别](http://images.cnitblog.com/kb/1/201311/01112728-71dd2eade8c24ab38769eaa00be7fedf.jpg)
+> ![Serif和Sans Serif的区别](http://oxujjb0ls.bkt.clouddn.com/Serif%E5%92%8CSans%20Serif%E7%9A%84%E5%8C%BA%E5%88%AB.jpg)
 
 分别拿 Exo、-apple-system 去搜了一下，大概懂了，这些都是字体，但...为什么要写这么多？
 
