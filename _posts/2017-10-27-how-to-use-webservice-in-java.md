@@ -173,7 +173,7 @@ public class TestClient2 {
 
 #### 1. 引入 axis 1.4 的 jar 包
 
-从[官网](https://mirrors.tuna.tsinghua.edu.cn/apache/axis/axis/java/1.4/)下载 axis_1.4.jar
+从[官网](https://mirrors.tuna.tsinghua.edu.cn/apache/axis/axis/java/1.4/)下载 axis-bin-1_4.zip
 
 项目中需要引入的 jar 包至少是这些：
 * axis.jar
@@ -243,7 +243,7 @@ Unable to find required classes (javax.activation.DataHandler and javax.mail.int
 
 #### 1. 使用 axis.jar 生成客户端
 
-详细步骤参考这篇博客
+详细步骤参考[这篇博客]({{ site.url }}/后端技术/2017/10/29/use-axis.jar-generate-client-code)
 
 #### 2. 查看生成的客户端类
 
@@ -283,11 +283,175 @@ public class TestClient4 {
 
 ---
 
+2017-10-29 更新补充 ↓
+
+---
+
 ## 客户端5
 
 #### 1. 引入 axis2 的 jar 包
 
+从[官网](http://www.apache.org/dyn/closer.lua/axis/axis2/java/core/1.7.6/axis2-1.7.6-bin.zip)下载 axis2-1.7.6-bin.zip
+
+项目中需要引入的 jar 包至少是这些：
+* axiom-api-1.2.20.jar
+* axiom-impl-1.2.20.jar
+* axis2-adb-1.7.6.jar
+* axis2-jaxws-1.7.6.jar
+* axis2-kernel-1.7.6.jar
+* axis2-transport-http-1.7.6.jar
+* axis2-transport-local-1.7.6.jar
+* commons-codec-1.2.jar
+* commons-httpclient-3.1.jar
+* commons-logging-1.1.1.jar
+* httpcore-4.4.4.jar
+* neethi-3.0.3.jar
+* woden-core-1.0M10.jar
+* wsdl4j-1.6.2.jar
+* xmlschema-core-2.2.1.jar
+
 #### 2. 写客户端测试类
 
+```java
+package com.priest.client5;
+
+import javax.xml.namespace.QName;
+
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.rpc.client.RPCServiceClient;
+
+public class TestClinent5 {
+
+	public static void main(String[] args) {
+		try {
+			String url = "http://localhost:8088/service/TestServer";
+			String namespace = "http://service.priest.com/";
+			String method = "testMethod";
+			Object[] inParam = new Object[] {"客户端5测试"};
+			Class[] returnType = new Class[] { String.class };
+			Object[] ret = null;
+
+			RPCServiceClient serviceClient = new RPCServiceClient();
+			Options options = serviceClient.getOptions();
+			EndpointReference targetURL = new EndpointReference(url);
+			options.setTo(targetURL);
+			QName opQName = new QName(namespace, method);
+
+			ret = serviceClient.invokeBlocking(opQName, inParam, returnType);
+			String result = (String) ret[0];
+			System.out.println("客户端5测试：\n" + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+
+```
+
+这里使用 RPC 客户端的方式调用
 
 #### 3. 执行调用
+
+![客户端5测试](http://oxujjb0ls.bkt.clouddn.com/image/20171029/%E5%AE%A2%E6%88%B7%E7%AB%AF5%E6%B5%8B%E8%AF%95.png)
+
+---
+
+## 客户端6
+
+#### 1. 引入 axis2 的 jar 包
+
+同上面客户端5
+
+#### 2. 写客户端测试类
+
+```java
+package com.priest.client6;
+
+import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
+import org.apache.axis2.addressing.EndpointReference;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
+
+public class TestClient6 {
+
+	public static void main(String[] args) {
+		try {
+			EndpointReference targetEPR = new EndpointReference("http://localhost:8088/service/TestServer");
+			OMFactory factory = OMAbstractFactory.getOMFactory();
+			OMNamespace nameSpace = factory.createOMNamespace("http://service.priest.com/", "tns");
+			OMElement method = factory.createOMElement("testMethod", nameSpace);
+			//因服务端没有为入参设置命名空间，所以此处用null
+			OMElement inParam = factory.createOMElement("arg0", null);
+			inParam.setText("客户端6测试");
+			method.addChild(inParam);
+
+			Options options = new Options();
+			options.setTo(targetEPR);
+			ServiceClient axiomClient = new ServiceClient();
+			axiomClient.setOptions(options);
+
+			OMElement retOM = axiomClient.sendReceive(method);
+			String result = retOM.getFirstElement().getText();
+			System.out.println("客户端6测试：\n" + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+```
+
+这次使用 axiom 的方式调用
+
+#### 3. 执行调用
+
+![客户端6测试](http://oxujjb0ls.bkt.clouddn.com/image/20171029/%E5%AE%A2%E6%88%B7%E7%AB%AF6%E6%B5%8B%E8%AF%95.png)
+
+---
+
+## 客户端7
+
+#### 1. 使用 axis2 的 eclipse 插件生成客户端代码
+
+下载安装插件 及 生成客户端代码的步骤见这篇博客
+
+#### 2. 查看生成的客户端类
+
+![axis2插件生成的客户端类](http://oxujjb0ls.bkt.clouddn.com/image/20171029/axis2%E7%94%9F%E6%88%90%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%B1%BB.png)
+
+服务端开放的方法(testMethod) 及对应的返回(testMethodResponse) 都生成了两个，以 E 为结尾的那个是由于服务端不是用 AXIOM 的方式写及开放的，自动生成时为了使用 axis2 的 OMElement，对 testMethod 和 testMethodResponse 做了一点"封装"(这么说不准确，但目前还不清楚这种生成现象的原理，学习到了再回来修改完善)
+
+#### 3. 写客户端测试类
+
+```java
+package com.priest.service;
+
+public class TestClient7 {
+	public static void main(String[] args) {
+		try {
+			TestServerServiceStub stub = new TestServerServiceStub();
+			TestMethodE testMethodE = new TestMethodE();
+			TestMethod testMethod = new TestMethod();
+			testMethod.setArg0("客户端7测试");
+			testMethodE.setTestMethod(testMethod);
+
+			TestMethodResponseE respE = stub.testMethod(testMethodE);
+			TestMethodResponse resp = respE.getTestMethodResponse();
+			String result = resp.get_return();
+
+			System.out.println("客户端7测试：\n" + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+#### 4. 执行调用
+
+![客户端7测试](http://oxujjb0ls.bkt.clouddn.com/image/20171029/%E5%AE%A2%E6%88%B7%E7%AB%AF7%E6%B5%8B%E8%AF%95.png)
