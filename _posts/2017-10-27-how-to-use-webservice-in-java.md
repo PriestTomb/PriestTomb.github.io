@@ -455,3 +455,35 @@ public class TestClient7 {
 #### 4. 执行调用
 
 ![客户端7测试](http://oxujjb0ls.bkt.clouddn.com/image/20171029/%E5%AE%A2%E6%88%B7%E7%AB%AF7%E6%B5%8B%E8%AF%95.png)
+
+---
+
+## 最后
+
+本文参考：
+
+[http://www.cnblogs.com/FlyingPuPu/p/5335138.html](http://www.cnblogs.com/FlyingPuPu/p/5335138.html)
+
+[https://yq.aliyun.com/articles/17285](https://yq.aliyun.com/articles/17285)
+
+[http://blog.csdn.net/liwf_/article/details/20864517?utm_source=tuicool&utm_medium=referral](http://blog.csdn.net/liwf_/article/details/20864517?utm_source=tuicool&utm_medium=referral)
+
+[http://www.cnblogs.com/Johness/archive/2013/04/19/3030392.html](http://www.cnblogs.com/Johness/archive/2013/04/19/3030392.html)
+
+[http://blog.csdn.net/jiangyu1013/article/details/75662707](http://blog.csdn.net/jiangyu1013/article/details/75662707)
+
+[http://tzz6.iteye.com/blog/2269229](http://tzz6.iteye.com/blog/2269229)
+
+[http://www.cnblogs.com/demingblog/p/3264688.html](http://www.cnblogs.com/demingblog/p/3264688.html)
+
+[http://danlley.iteye.com/blog/102164](http://danlley.iteye.com/blog/102164)
+
+[http://www.cnblogs.com/earl86/archive/2008/11/04/1666481.html](http://www.cnblogs.com/earl86/archive/2008/11/04/1666481.html)
+
+[http://www.xuebuyuan.com/1311482.html](http://www.xuebuyuan.com/1311482.html)
+
+[http://www.cnblogs.com/564085446java/p/3932520.html](http://www.cnblogs.com/564085446java/p/3932520.html)
+
+[http://blog.csdn.net/wangchangpen62/article/details/45171001](http://blog.csdn.net/wangchangpen62/article/details/45171001)
+
+[http://blog.163.com/zjm123_0/blog/static/1204004272009111715036432/](http://blog.163.com/zjm123_0/blog/static/1204004272009111715036432/)
