@@ -418,7 +418,7 @@ public class TestClient6 {
 
 #### 1. 使用 axis2 的 eclipse 插件生成客户端代码
 
-下载安装插件 及 生成客户端代码的步骤见这篇博客
+下载安装插件 及 生成客户端代码的步骤见[这篇博客]({{ site.url }}/后端技术/2017/10/30/axis2-plugin-generate-client-code/)
 
 #### 2. 查看生成的客户端类
 
