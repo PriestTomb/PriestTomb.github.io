@@ -38,3 +38,8 @@ plugins: [jekyll-paginate]
 # 分页
 paginate: 10
 paginate_path: "/page/:num/"
+
+leancloud:
+  enable: true
+  app_id: sHOACpcLa8X13BWC7z1AFx3L-gzGzoHsz
+  app_key: D6LrgfFtGUteAInLJqtfjtx5
