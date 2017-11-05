@@ -1,7 +1,7 @@
 {% if site.leancloud.enable %}
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+  <!-- <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
   <script>AV.initialize("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
   <script>
     function showHitCount(Counter) {
@@ -134,14 +134,38 @@
     }
 
     //调用API获取IP
-    function getVisitorIp() {
-      return returnCitySN['cip'];
+    function getVisitorIpAndJudge(Visitor, Counter) {
+      //return returnCitySN['cip'];
+      // $.ajaxSettings.async = false;
+      // try {
+      //   $.getJSON('https://freegeoip.net/json/?callback=?', function(data) {
+      //     var ip = data.ip;
+      //     console.log('调用时：' + new Date() + "    "+ ip);
+      //     return ip;
+      //   });
+      // } catch (err) {
+      //   console.log(err.message);
+      //   return "0.0.0.0";
+      // }
+
+      var ip;
+      var options = {
+        type: 'POST',
+        dataType: "json",
+        //async: false, //jquery3中可以直接使用回调函数，不用再指定async
+        url: "https://freegeoip.net/json/?callback=?"
+      };
+      $.ajax(options)
+      .done(function(data, textStatus, jqXHR) {
+        if(textStatus == "success") {
+          ip = data.ip;
+        }
+        judgeVisitor(Visitor, Counter, ip)
+      });
     }
 
     //判断访客是否已访问过该文章，及访问时间，符合条件则增加一次访问次数
-    function judgeVisitor(Visitor, Counter) {
-      var ip = getVisitorIp();
-
+    function judgeVisitor(Visitor, Counter, ip) {
       var $postInfo = $(".leancloud_visitors");
       var post_url = $postInfo.attr('id').trim();
 
@@ -211,7 +235,7 @@
 
       if ($('.leancloud_visitors').length == 1) {
         // 文章页面，调用判断方法，对符合条件的访问增加访问次数
-        judgeVisitor(Visitor, Counter);
+        getVisitorIpAndJudge(Visitor, Counter);
       } else if ($('.post-link').length > 1){
         // 首页 暂未使用
         // showHitCount(Counter);
