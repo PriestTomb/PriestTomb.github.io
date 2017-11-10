@@ -57,6 +57,24 @@
 
 </div>
 
+
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: location.href
+  owner: 'PriestTomb',
+  repo: 'https://github.com/PriestTomb/MyBlogComments',
+  oauth: {
+    client_id: '7b297c5236c92234b2fa',
+    client_secret: 'ee76f28abe51eabba3db45735b693edfc4fb5a69',
+  },
+})
+gitment.render('container')
+</script>
+
+
 {% if content and page.author_footer != false %}
 
 
