@@ -11,7 +11,7 @@ Priest Tomb Blog
 
 #### 1. 访问次数
 
-使用了 LeanCloud，参考[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/06/jekyll%E4%BD%BF%E7%94%A8LeanCloud%E8%AE%B0%E5%BD%95%E6%96%87%E7%AB%A0%E7%9A%84%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0/)的介绍
+使用了 LeanCloud，参考我的[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/06/jekyll%E4%BD%BF%E7%94%A8LeanCloud%E8%AE%B0%E5%BD%95%E6%96%87%E7%AB%A0%E7%9A%84%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0/)的介绍
 
 #### 2. 评论功能
 
@@ -19,8 +19,4 @@ Priest Tomb Blog
 
 #### 3. 站内搜索
 
-还没做哈哈哈...
-
-#### 4. 分享功能
-
-也没做哈哈哈...
+使用了 [simple-jekyll-search.js](https://github.com/christian-fei/Simple-Jekyll-Search)，参考项目的 README 就可以了，很简单就能用了，当然，样式可以自己调整
