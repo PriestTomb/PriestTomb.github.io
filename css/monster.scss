@@ -240,6 +240,34 @@ blockquote {
   color: #6D6D6D;
 }
 
+/* search */
+.left-search {
+  width: 12em;
+  margin-left: -15em;
+  display: block;
+  text-align: center;
+}
+
+.left-search-icon {
+  position: absolute;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.left-search-input {
+  border: 2px solid #363636;
+  border-radius: 5px;
+  height: 30px;
+  width: 195px;
+  padding-left: 20px;
+}
+
+.left-search-results {
+  width: 12em;
+  display: block;
+  text-align: left;
+}
+
 /** main entry**/
 .entry {
     overflow: hidden;

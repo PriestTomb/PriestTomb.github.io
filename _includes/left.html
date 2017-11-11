@@ -49,6 +49,33 @@
 		</ul>
 	</div>
 	<br/>
+
+	<!-- 左侧搜索框 -->
+	<div class="left-search" id="search-container">
+  	<label class="left-search-icon" for="search-input">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</label>
+		<input class="left-search-input" type="text" id="search-input" placeholder="Search" />
+
+		<ul class="left-search-results" id="results-container"></ul>
+	</div>
+
+	<script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js" type="text/javascript"></script>
+	<script>
+		SimpleJekyllSearch({
+			searchInput: document.getElementById('search-input'),
+			resultsContainer: document.getElementById('results-container'),
+			json: '/search.json',
+			searchResultTemplate: '<li><a href="{url}">{title}</a></li><br/>',
+			noResultsText: '没有搜索到相关文章',
+			limit: 10,
+			fuzzy: false
+		})
+	</script>
+
+	<br/>
+
+	<!-- 左侧菜单栏 -->
 	<div class="menu">
 	    {% assign current = page.title %}
 	    <a href="/" class="page-link{% if current == null %} active{% endif %}">Blog</a>
