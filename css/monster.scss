@@ -463,6 +463,18 @@ blockquote {
     margin: 30px auto;
 }
 
+/* footer */
+.site-footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #363636;
+}
+
+.footer-div {
+  padding-top: 5px;
+}
+
 @media all and (max-width: 1000px) {
     #site-title img {
         width: 25px;
