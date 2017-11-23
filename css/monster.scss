@@ -391,10 +391,6 @@ blockquote {
     }
 }
 
-// .cnzz {
-//     a {display: none}
-// }
-
 .article-title {
     margin-top: 10px;
 }
@@ -410,7 +406,12 @@ blockquote {
 }
 
 div .highlight {
-  font-family: Consolas,"Microsoft YaHei" !important;
+    font-family: Consolas,"Microsoft YaHei" !important;
+}
+
+.like-post {
+    margin: 10px 0 10px 0;
+    text-align: center;
 }
 
 /** page */
