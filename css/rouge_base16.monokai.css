@@ -83,3 +83,10 @@ add by PriestTomb
 .highlight .nf {
   color: #EE0000;
 }
+/*
+add by PriestTomb
+.ni也不知道是什么。。先用个橙红色
+*/
+.highlight .ni {
+  color: #FF4500;
+}
