@@ -27,4 +27,4 @@ Priest Tomb Blog
 
 #### 5. 流量统计
 
-使用了正规的第三方——[站长统计](https://web.umeng.com/main.php?c=user&a=index)
+使用了第三方的站长统计
