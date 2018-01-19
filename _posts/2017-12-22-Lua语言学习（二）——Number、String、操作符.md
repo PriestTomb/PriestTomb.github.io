@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lua语言学习（二）
+title: Lua语言学习（二）——Number、String、操作符
 date: 2017-12-22
 categories:
 - 游戏开发
