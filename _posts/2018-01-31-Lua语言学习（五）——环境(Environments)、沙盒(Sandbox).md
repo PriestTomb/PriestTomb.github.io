@@ -179,7 +179,7 @@ assert(run [[while 1 do end]])
 
 稍微研究了下，就分别解释一下吧
 
-##### assert
+#### assert
 
 断言表达式(条件)是否为 nil 或 false
 
@@ -199,11 +199,11 @@ local func,err = assert(f,"error!")
 print(func,func == f,err) --function: 00000000586C9120	true	error!
 ```
 
-##### pcall
+#### pcall
 
 和 pcall 相关的还有 xpcall 和 error，这些东西放到下一篇再一起说
 
-##### loadstring
+#### loadstring
 
 编译一段字符串，并返回编译好的代码块作为函数，但不执行它
 
@@ -229,7 +229,7 @@ s = string.dump (f)
 assert (loadstring (s)) () -- hello, world
 ```
 
-##### not?
+#### not?
 
 上面代码中 assert 中的 not，其实就是对 run 方法的结果取反，没有 not 时，结果是这样的
 
