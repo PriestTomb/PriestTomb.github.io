@@ -15,7 +15,7 @@ Priest Tomb Blog
 
 #### 2. 评论功能
 
-使用了 gitment，参考作者的[这篇文章](https://imsun.net/posts/gitment-introduction/)
+使用了 [gitalk](https://github.com/gitalk/gitalk)，参考项目的 README
 
 #### 3. 站内搜索
 
