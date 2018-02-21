@@ -34,7 +34,8 @@ categories_path: categories/
 tags_path: tags/
 
 # 插件
-plugins: [jekyll-paginate]
+#plugins: [jekyll-paginate]
+gems: [jekyll-paginate]
 
 # 分页
 paginate: 10
