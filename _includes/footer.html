@@ -41,13 +41,13 @@
         type: 'GET',
         dataType: "json",
         //async: false, //jquery3中可以直接使用回调函数，不用再指定async
-        url: "http://ip-api.com/json"
+        url: "https://api.ipify.org/?format=json"
       };
       $.ajax(options)
       .done(function(data, textStatus, jqXHR) {
         if(textStatus == "success") {
           try {
-            ip = data.query;
+            ip = data.ip;
           } catch (e) {
             ip = "1.2.3.4"
             if(window.console){
