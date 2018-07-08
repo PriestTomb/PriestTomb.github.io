@@ -55,6 +55,30 @@ blockquote {
   border-color: rgba(0,0,0,0.15);
 }
 
+/* table */
+table {
+  border: 1px solid #000000;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid #000000;
+  padding: 5px 4px;
+}
+table tr:nth-child(even) {
+  background: #F2F2F2;
+}
+table thead {
+  background: #696969;
+}
+table thead th {
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+table tfoot td {
+  font-size: 14px;
+}
+
 /** layout */
 .wrapper {
     max-width: 800px;
