@@ -7,6 +7,8 @@
     var curIpVisitRecord = null;
     //定义一个全局当前文章对象，用于
     var curPost = null;
+    //点赞更新是否完成，避免有人连续点击按钮，数据更新出错
+    var bIsOperateEnd = true;
 
     //调用API获取IP
     function getVisitorIpAndJudge() {
@@ -280,13 +282,32 @@
       if(curPost == null || curIpVisitRecord == null) {
         alert('别点那么快...请稍等...');
       }
+      //避免狂点按钮，导致数据错乱的情况
+      if(!bIsOperateEnd) {
+        return
+      }
+      bIsOperateEnd = false;
+      var AV_LikeLog = AV.Object.extend("like_log");
 
       //更新 Posts 表的点赞数量
-      var newNum = parseInt(curPost.get('like_times')) + parseInt(type);
+      var oldNum = parseInt(curPost.get('like_times'));
+      var newNum = oldNum + parseInt(type);
       curPost.fetchWhenSave(true);
       curPost.set('like_times', newNum);
       curPost.save(null, {
         success: function(curPost) {
+          //新建log对象
+          var likeLog = new AV_LikeLog();
+          var acl = new AV.ACL();
+          acl.setPublicReadAccess(true);
+          acl.setPublicWriteAccess(true);
+          likeLog.setACL(acl);
+          likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
+          likeLog.set('post_url', curIpVisitRecord.get('post_url'));
+          likeLog.set('like_action', type.toString());
+          likeLog.set('old_num', oldNum);
+          likeLog.set('new_num', parseInt(curPost.get('like_times')));
+
           //成功后再更新 visitors_record 表的 like_this_post 字段，避免两张表的数据不统一
           var likeThisPost = type == -1 ? 0 : 1;
           curIpVisitRecord.fetchWhenSave(true);
@@ -294,11 +315,16 @@
           curIpVisitRecord.save(null, {
             success: function(curIpVisitRecord) {
               refreshLikeBtn();
+              likeLog.save();
+              bIsOperateEnd = true;
             },
             error: function(curIpVisitRecord, error) {
               if(window.console){
                 console.log('Failed to create visitor record, with error message: ' + error.message);
               }
+              likeLog.set('err_msg', error.message);
+              likeLog.save();
+              bIsOperateEnd = true;
             }
           });
         },
@@ -306,6 +332,20 @@
           if(window.console){
             console.log('Failed to create visitor record, with error message: ' + error.message);
           }
+          //新建log对象
+          var likeLog = new AV_LikeLog();
+          var acl = new AV.ACL();
+          acl.setPublicReadAccess(true);
+          acl.setPublicWriteAccess(true);
+          likeLog.setACL(acl);
+          likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
+          likeLog.set('post_url', curIpVisitRecord.get('post_url'));
+          likeLog.set('like_action', type.toString());
+          likeLog.set('old_num', oldNum);
+          likeLog.set('new_num', parseInt(curPost.get('like_times')));
+          likeLog.set('err_msg', error.message);
+          likeLog.save();
+          bIsOperateEnd = true;
         }
       });
     }
