@@ -8,19 +8,21 @@ author_footer: false
 
 ## 个人信息
 
-PriestTomb, 1993年生人
+PriestTomb，1993年生人
 
 弱渣coder/病患一枚/生存游戏爱好者/爱好广泛无一专精/悲观主义者/话痨/日常拍花鸟鱼虫
 
 英语还没学好，日语尚未入门
 
-干过三年的 Java，现在转行做了游戏开发，主 Lua 脚本
+主攻 Java，干过 Lua
 
 ---
 
 ## 相关链接
 
 [原CSDN博客](http://blog.csdn.net/mxmxz)：有一些没(懒得)迁移的博客
+
+[斗鱼直播间](https://www.douyu.com/3612858)：无名小主播，偶尔会打游戏
 
 [本站源码](https://github.com/PriestTomb/PriestTomb.github.io)：喜欢可叉，欢迎改造
 
