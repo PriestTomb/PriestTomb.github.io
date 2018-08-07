@@ -66,3 +66,23 @@ var gitalk = new Gitalk({
 这样一来，label 过长的问题虽然解决了，但因为微信内置浏览器会改 title，相当于还是留下了一个问题，下午稍微研究了下，暂时也不知道怎么解决
 
 先留个坑吧。。
+
+---
+
+#### 2018-08-07 更新
+
+来填坑啦~
+
+![微信问题解决方案](http://oxujjb0ls.bkt.clouddn.com/image/gitalk%E9%97%AE%E9%A2%98/%E5%BE%AE%E4%BF%A1%E6%89%93%E5%BC%80%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.png)
+
+[@jianhuisu](https://github.com/jianhuisu) 今天说把 location.href 改成 location.pathname 就可以了
+
+晚上自己又测试了下微信内置浏览器打开的问题：
+
+* 用另一个 github 帐号登录 gitalk，页面刷新后提示未创建 issue，但再次刷新则恢复正常，即可以取到已创建的 issue
+
+* 用自己的 github 帐号登录 gitalk，仍然会创建不同的 issue
+
+按 [@jianhuisu](https://github.com/jianhuisu) 说的，改为 location.pathname 后再测试，目前没有问题，只是。。新创建了 issue，原 issue 下的评论内容就只能“丢失”了【只是 gitalk 下看不到罢了
+
+😂 也是自己之前没直接解决这个问题的锅，自己背了。。
