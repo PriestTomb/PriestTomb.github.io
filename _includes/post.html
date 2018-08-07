@@ -93,7 +93,7 @@ var gitalk = new Gitalk({
   repo: 'PriestTomb.github.io',
   owner: 'PriestTomb',
   admin: ['PriestTomb'],
-  id: md5(location.href)
+  id: md5(location.pathname)
 })
 
 gitalk.render('gitalk-container')
