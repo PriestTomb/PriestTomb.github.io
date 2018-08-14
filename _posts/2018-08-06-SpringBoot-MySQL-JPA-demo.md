@@ -38,7 +38,7 @@ IDEA 现在可以直接新建 SpringBoot 工程，Eclipse 的话，暂时还是�
 
 ## 主要代码配置
 
-源码全部丢 github 上去了，可以点[这里](https://github.com/PriestTomb/SpringBootDemo)查看
+源码全部丢 github 上去了，可以点[这里](https://github.com/PriestTomb/SpringBootDemo/tree/master/SpringBoot-MySQL-JPA)查看
 
 下面列一些主要的代码和配置
 
