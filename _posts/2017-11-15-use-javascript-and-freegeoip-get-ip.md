@@ -80,3 +80,37 @@ $.ajax(options)
   }
 });
 ```
+
+## 2018-08-17 更新
+
+上个月的时候发现 freegeoip 取 ip 报错，去看了下官网，发现他们更新升级了，现在变成了 [ipstack](https://ipstack.com/)，免费服务现在是 10000次/月，emm 为了省事，还是直接换了一个新的取 ip 的 api
+
+现在用的是 [api.ipify](https://api.ipify.org/)，这个服务目前几乎没有限制访问次数，但只查 ip，反正我这边就只需要 ip
+
+自己这边也稍微“优化”了一下，取不到的时候默认赋值一下，省的后面的逻辑取不到ip
+
+```javascript
+//用json格式获取
+var ip = "1.2.3.4";
+var options = {
+  type: 'GET',
+  dataType: "json",
+  //async: false, //jquery3中可以直接使用回调函数，不用再指定async
+  url: "https://api.ipify.org/?format=json"
+};
+$.ajax(options)
+.done(function(data, textStatus, jqXHR) {
+  if(textStatus == "success") {
+    try {
+      ip = data.ip;
+    } catch (e) {
+      ip = "1.2.3.4";
+      if(window.console){
+        console.log(e.message);
+      }
+    }
+  } else {
+    ip = "1.2.3.4";
+  }
+});
+```
