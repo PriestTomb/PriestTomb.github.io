@@ -1,7 +1,7 @@
 {% if site.leancloud.enable %}
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
+  <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+  <script>AV.init("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
   <script>
     //定义一个全局当前IP访问记录对象，用于更新访问记录、更新点赞记录
     var curIpVisitRecord = null;
@@ -46,36 +46,32 @@
 
       var $postInfo = $(".leancloud_visitors");
       var post_url = $postInfo.attr('id').trim();
-
       var query = new AV.Query(Visitor);
 
       query.equalTo("visitor_ip", ip);
       query.equalTo("post_url", post_url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            if(window.console){
-              console.log('该IP已访问过该文章');
-            }
-
-            curIpVisitRecord = results[0];
-            updateIpRecord();
-            refreshLikeBtn();
-          } else {
-            if(window.console){
-              console.log('该IP第一次访问该文章，保存新的访问记录，并增加访问次数');
-            }
-
-            addPostVisitedTimes();
-            addNewIpRecord(ip, post_url);
-          }
-        },
-        error: function(error) {
+      query.find().then(function(results){
+        if (results.length > 0) {
           if(window.console){
-            console.log('Error:' + error.code + " " + error.message);
+            console.log('该IP已访问过该文章');
           }
+
+          curIpVisitRecord = results[0];
+          updateIpRecord();
+          refreshLikeBtn();
+        } else {
+          if(window.console){
+            console.log('该IP第一次访问该文章，保存新的访问记录，并增加访问次数');
+          }
+
           addPostVisitedTimes();
+          addNewIpRecord(ip, post_url);
         }
+      }, function(error){
+        if(window.console){
+          console.log('Error:' + error.code + " " + error.message);
+        }
+        addPostVisitedTimes();
       });
     }
 
@@ -92,57 +88,48 @@
 
       // 只根据文章的url查询LeanCloud服务器中的数据
       query.equalTo("post_url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {//说明LeanCloud中已经记录了这篇文章
-            curPost = results[0];
-            curPost.fetchWhenSave(true);
-            curPost.increment("visited_times");// 将点击次数加1
-            curPost.save(null, {
-              success: function(curPost) {
-                var $element = $(document.getElementById(url));
-                var newTimes = curPost.get('visited_times');
-                $element.find('.leancloud-visitors-count').text(newTimes);
-              },
-              error: function(curPost, error) {
-                if(window.console){
-                  console.log('Failed to save Visitor num, with error message: ' + error.message);
-                }
-              }
-            });
+      query.find().then(function(results){
+        if (results.length > 0) {//说明LeanCloud中已经记录了这篇文章
+          curPost = results[0];
+          //curPost.fetchWhenSave(true);
+          curPost.increment("visited_times",1);// 将点击次数加1
+          curPost.save(null,{fetchWhenSave:true}).then(function(curPost){
+            var $element = $(document.getElementById(url));
+            var newTimes = curPost.get('visited_times');
+            $element.find('.leancloud-visitors-count').text(newTimes);
+          }, function(error){
+            if(window.console){
+              console.log('Failed to save Visitor num, with error message: ' + error.message);
+            }
+          });
 
-            //加载点赞数
-            loadLikeNums();
-          } else {
-            // 执行这里，说明LeanCloud中还没有记录此文章
-            curPost = new AV_Posts();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            curPost.setACL(acl);
-            /* End Set ACL */
-            curPost.set("post_title", title);// 把文章标题
-            curPost.set("post_url", url); // 文章url
-            curPost.set("visited_times", 1); // 初始点击次数：1次
-            curPost.save(null, { // 上传到LeanCloud服务器中
-              success: function(curPost) {
-                var $element = $(document.getElementById(url));
-                var newTimes = curPost.get('visited_times');
-                $element.find('.leancloud-visitors-count').text(newTimes);
-              },
-              error: function(curPost, error) {
-                if(window.console){
-                  console.log('Failed to create');
-                }
-              }
-            });
-          }
-        },
-        error: function(error) {
-          if(window.console){
-            console.log('Error:' + error.code + " " + error.message);
-          }
+          //加载点赞数
+          loadLikeNums();
+        } else {
+          // 执行这里，说明LeanCloud中还没有记录此文章
+          curPost = new AV_Posts();
+          /* Set ACL */
+          var acl = new AV.ACL();
+          acl.setPublicReadAccess(true);
+          acl.setPublicWriteAccess(true);
+          curPost.setACL(acl);
+          /* End Set ACL */
+          curPost.set("post_title", title);// 把文章标题
+          curPost.set("post_url", url); // 文章url
+          curPost.set("visited_times", 1); // 初始点击次数：1次
+          curPost.save().then(function(curPost){
+            var $element = $(document.getElementById(url));
+            var newTimes = curPost.get('visited_times');
+            $element.find('.leancloud-visitors-count').text(newTimes);
+          }, function(error){
+            if(window.console){
+              console.log('Failed to create');
+            }
+          });
+        }
+      }, function(error){
+        if(window.console){
+          console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
@@ -158,26 +145,23 @@
 
       // 只根据文章的url查询LeanCloud服务器中的数据
       query.equalTo("post_url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {//说明LeanCloud中已经记录了这篇文章
-            curPost = results[0];
-            var $element = $(document.getElementById(url));
-            var newTimes = curPost.get('visited_times');
-            $element.find('.leancloud-visitors-count').text(newTimes);
+      query.find().then(function(results){
+        if (results.length > 0) {//说明LeanCloud中已经记录了这篇文章
+          curPost = results[0];
+          var $element = $(document.getElementById(url));
+          var newTimes = curPost.get('visited_times');
+          $element.find('.leancloud-visitors-count').text(newTimes);
 
-            loadLikeNums();
-          } else {
-            if(window.console){
-              //新文章第一次打开时，会查不到记录，如果不是新文章第一次访问，那就是又有BUG了
-              console.log('如果当前不是一篇新文章的第一次访问，那代表这是一种异常场景');
-            }
-          }
-        },
-        error: function(error) {
+          loadLikeNums();
+        } else {
           if(window.console){
-            console.log('Error:' + error.code + " " + error.message);
+            //新文章第一次打开时，会查不到记录，如果不是新文章第一次访问，那就是又有BUG了
+            console.log('如果当前不是一篇新文章的第一次访问，那代表这是一种异常场景');
           }
+        }
+      }, function(error){
+        if(window.console){
+          console.log('Error:' + error.code + " " + error.message);
         }
       });
     }
@@ -196,13 +180,11 @@
 
         addPostVisitedTimes();
 
-        curIpVisitRecord.fetchWhenSave(true);
-        curIpVisitRecord.save(null, {
-          success: function(curIpVisitRecord) { },
-          error: function(curIpVisitRecord, error) {
-            if(window.console){
-              console.log('Failed to save visitor record, with error message: ' + error.message);
-            }
+        curIpVisitRecord.save().then(function(curIpVisitRecord){
+
+        }, function(error){
+          if(window.console){
+            console.log('Failed to save visitor record, with error message: ' + error.message);
           }
         });
       } else {
@@ -224,12 +206,11 @@
       curIpVisitRecord.setACL(acl);
       curIpVisitRecord.set("visitor_ip", ip);
       curIpVisitRecord.set("post_url", post_url);
-      curIpVisitRecord.save(null, { // 上传到LeanCloud服务器中
-        success: function(curIpVisitRecord) { },
-        error: function(curIpVisitRecord, error) {
-          if(window.console){
-            console.log('Failed to create visitor record, with error message: ' + error.message);
-          }
+      curIpVisitRecord.save().then(function(curIpVisitRecord){ // 上传到LeanCloud服务器中
+
+      }, function(error){
+        if(window.console){
+          console.log('Failed to create visitor record, with error message: ' + error.message);
         }
       });
     }
@@ -269,61 +250,55 @@
       //更新 Posts 表的点赞数量
       var oldNum = parseInt(curPost.get('like_times'));
       var newNum = oldNum + parseInt(type);
-      curPost.fetchWhenSave(true);
+      //curPost.fetchWhenSave(true);
       curPost.set('like_times', newNum);
-      curPost.save(null, {
-        success: function(curPost) {
-          //新建log对象
-          var likeLog = new AV_LikeLog();
-          var acl = new AV.ACL();
-          acl.setPublicReadAccess(true);
-          acl.setPublicWriteAccess(true);
-          likeLog.setACL(acl);
-          likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
-          likeLog.set('post_url', curIpVisitRecord.get('post_url'));
-          likeLog.set('like_action', type.toString());
-          likeLog.set('old_num', oldNum);
-          likeLog.set('new_num', parseInt(curPost.get('like_times')));
+      curPost.save(null, {fetchWhenSave:true}).then(function(curPost){
+        //新建log对象
+        var likeLog = new AV_LikeLog();
+        var acl = new AV.ACL();
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+        likeLog.setACL(acl);
+        likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
+        likeLog.set('post_url', curIpVisitRecord.get('post_url'));
+        likeLog.set('like_action', type.toString());
+        likeLog.set('old_num', oldNum);
+        likeLog.set('new_num', parseInt(curPost.get('like_times')));
 
-          //成功后再更新 visitors_record 表的 like_this_post 字段，避免两张表的数据不统一
-          var likeThisPost = type == -1 ? 0 : 1;
-          curIpVisitRecord.fetchWhenSave(true);
-          curIpVisitRecord.set("like_this_post", likeThisPost);
-          curIpVisitRecord.save(null, {
-            success: function(curIpVisitRecord) {
-              refreshLikeBtn();
-              likeLog.save();
-              bIsOperateEnd = true;
-            },
-            error: function(curIpVisitRecord, error) {
-              if(window.console){
-                console.log('Failed to create visitor record, with error message: ' + error.message);
-              }
-              likeLog.set('err_msg', error.message);
-              likeLog.save();
-              bIsOperateEnd = true;
-            }
-          });
-        },
-        error: function(curPost, error) {
+        //成功后再更新 visitors_record 表的 like_this_post 字段，避免两张表的数据不统一
+        var likeThisPost = type == -1 ? 0 : 1;
+        //curIpVisitRecord.fetchWhenSave(true);
+        curIpVisitRecord.set("like_this_post", likeThisPost);
+        curIpVisitRecord.save(null, {fetchWhenSave:true}).then(function(curIpVisitRecord){
+          refreshLikeBtn();
+          likeLog.save();
+          bIsOperateEnd = true;
+        }, function(error){
           if(window.console){
             console.log('Failed to create visitor record, with error message: ' + error.message);
           }
-          //新建log对象
-          var likeLog = new AV_LikeLog();
-          var acl = new AV.ACL();
-          acl.setPublicReadAccess(true);
-          acl.setPublicWriteAccess(true);
-          likeLog.setACL(acl);
-          likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
-          likeLog.set('post_url', curIpVisitRecord.get('post_url'));
-          likeLog.set('like_action', type.toString());
-          likeLog.set('old_num', oldNum);
-          likeLog.set('new_num', parseInt(curPost.get('like_times')));
           likeLog.set('err_msg', error.message);
           likeLog.save();
           bIsOperateEnd = true;
+        });
+      }, function(error){
+        if(window.console){
+          console.log('Failed to create visitor record, with error message: ' + error.message);
         }
+        //新建log对象
+        var likeLog = new AV_LikeLog();
+        var acl = new AV.ACL();
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+        likeLog.setACL(acl);
+        likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
+        likeLog.set('post_url', curIpVisitRecord.get('post_url'));
+        likeLog.set('like_action', type.toString());
+        likeLog.set('old_num', oldNum);
+        likeLog.set('new_num', parseInt(curPost.get('like_times')));
+        likeLog.set('err_msg', error.message);
+        likeLog.save();
+        bIsOperateEnd = true;
       });
     }
 
