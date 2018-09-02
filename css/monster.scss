@@ -505,7 +505,53 @@ div .highlight {
   padding-top: 5px;
 }
 
-@media all and (max-width: 1000px) {
+/* right */
+.right {
+  float: right;
+}
+
+.top-read {
+  width: 18em;
+  margin-right: -19em;
+  margin-left: 1em;
+  display: block;
+  text-align: left;
+}
+
+.top-read h3.module-title::before {
+  display: inline-block;
+  margin-right: 3px;
+  content: '';
+  width: 4px;
+  height: 20px;
+  vertical-align: -3px;
+  background-color: #e4716c;
+}
+
+.top-read-content {
+  padding-top: 8px;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.top-read-list {
+  margin-top: -8px;
+}
+
+.top-read-list li {
+  margin-top: 8px;
+}
+
+.top-read-list a {
+  word-break: break-word;
+}
+
+.read-num {
+  font-size: 15px;
+  color: #858585;
+}
+
+@media all and (max-width: 1300px) {
     #site-title img {
         width: 25px;
     }
@@ -566,6 +612,11 @@ div .highlight {
         img {
             display: none;
         }
+    }
+
+    /* 小屏时右侧内容暂时不显示，以后内容多了再调整 */
+    .right {
+      display: none;
     }
 }
 

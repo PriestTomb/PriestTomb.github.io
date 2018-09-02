@@ -302,6 +302,30 @@
       });
     }
 
+    //查询阅读次数最高的文章列表
+    function getTopReadArticleList() {
+      var AV_Posts = AV.Object.extend("Posts");
+      var query = new AV.Query(AV_Posts);
+      query.limit(5);
+      query.addDescending('visited_times');
+      query.find().then(function(results){
+        if(results != null && results.length > 0) {
+          var ulObj = $('.top-read-list')
+          for(var i = 0; i < results.length; i++) {
+            var articleObj = results[i];
+            var liStr = "<li><a href='https://priesttomb.github.io"+articleObj.get('post_url')+"'>"+articleObj.get('post_title')+"</a><p class='read-num'>访问次数：<span>"+articleObj.get('visited_times')+"</span></p></li>";
+            ulObj.append(liStr);
+          }
+        }
+      }, function(error){
+        if(window.console){
+          console.log('Failed to get post list, with error message: ' + error.message);
+        }
+        //异常时直接隐藏右边控件
+        $('.right').hide();
+      });
+    }
+
     $(function() {
       if ($('.leancloud_visitors').length == 1) { //文章页面
         //先显示访问次数及赞数
@@ -309,8 +333,9 @@
 
         //再获取ip，进行判断，对符合条件的访问增加访问次数
         getVisitorIpAndJudge();
-      } else if ($('.post-link').length > 1){ //首页
-        //暂未使用
+      } else if ($('.articles').length == 1){ //首页
+        //获取访问量前五的文章
+        getTopReadArticleList();
       }
     });
   </script>
