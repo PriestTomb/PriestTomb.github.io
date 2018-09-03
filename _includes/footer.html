@@ -333,10 +333,10 @@
 
         //再获取ip，进行判断，对符合条件的访问增加访问次数
         getVisitorIpAndJudge();
-      } else if ($('.articles').length == 1){ //首页
-        //获取访问量前五的文章
-        getTopReadArticleList();
       }
+
+      //不限制页面，都获取并显示访问量前五的文章
+      getTopReadArticleList();
     });
   </script>
 {% endif %}
