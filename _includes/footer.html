@@ -302,28 +302,84 @@
       });
     }
 
-    //查询阅读次数最高的文章列表
-    function getTopReadArticleList() {
-      var AV_Posts = AV.Object.extend("Posts");
-      var query = new AV.Query(AV_Posts);
-      query.limit(5);
-      query.addDescending('visited_times');
-      query.find().then(function(results){
-        if(results != null && results.length > 0) {
-          var ulObj = $('.top-read-list')
-          for(var i = 0; i < results.length; i++) {
-            var articleObj = results[i];
-            var liStr = "<li><a href='https://priesttomb.github.io"+articleObj.get('post_url')+"'>"+articleObj.get('post_title')+"</a><p class='read-num'>访问次数：<span>"+articleObj.get('visited_times')+"</span></p></li>";
-            ulObj.append(liStr);
-          }
-        }
-      }, function(error){
-        if(window.console){
-          console.log('Failed to get post list, with error message: ' + error.message);
-        }
-        //异常时直接隐藏右边控件
+    //根据 json 格式的数据，刷新热门文章信息
+    function refreshTopRead(articleListData) {
+      if (!articleListData || articleListData == "") {
         $('.right').hide();
-      });
+      } else {
+        var ulObj = $('.top-read-list');
+        var articleList = JSON.parse(articleListData);
+        for(var i in articleList) {
+          var articleObj = articleList[i]
+          var liStr = "<li><a href='https://priesttomb.github.io"+articleObj.url+"'>"+articleObj.title+"</a><p class='read-num'>访问次数：<span>"+articleObj.num+"</span></p></li>";
+          ulObj.append(liStr);
+        }
+      }
+    }
+
+    //从 LeanCloud 查询阅读次数最高的文章列表
+    function getTopReadArticleList() {
+      var articleListData = "";
+
+      if (window.sessionStorage) { //浏览器支持 sessionStorage
+        var storage = window.sessionStorage;
+        articleListData = storage.getItem("articleListData");
+
+        if (!articleListData) {
+          //storage 中没数据时，要从 LeanCloud 查数据并存入
+          articleListData = "";
+          var AV_Posts = AV.Object.extend("Posts");
+          var query = new AV.Query(AV_Posts);
+          query.limit(5);
+          query.addDescending('visited_times');
+          query.find().then(function(results){
+            if(results != null && results.length > 0) {
+              for(var i = 0; i < results.length; i++) {
+                var articleObj = results[i];
+                var jsonStr = "{\"url\":\""+articleObj.get('post_url')+"\",\"title\":\""+articleObj.get('post_title')+"\",\"num\":\""+articleObj.get('visited_times')+"\"}";
+                articleListData = articleListData + jsonStr;
+                if (i < results.length - 1) {
+                  articleListData = articleListData + ",";
+                }
+              }
+              articleListData = "["+articleListData+"]";
+              //保存到 sessionStorage
+              storage.setItem("articleListData",articleListData);
+              refreshTopRead(articleListData);
+            }
+          }, function(error){
+            if(window.console){
+              console.log('Failed to get post list, with error message: ' + error.message);
+            }
+            //异常时直接隐藏右边控件
+            $('.right').hide();
+          });
+        } else {
+          //有数据，直接刷新展示
+          refreshTopRead(articleListData);
+        }
+      } else { //浏览器不支持，只能每次都查 LeanCloud，并直接刷新展示
+        var AV_Posts = AV.Object.extend("Posts");
+        var query = new AV.Query(AV_Posts);
+        query.limit(5);
+        query.addDescending('visited_times');
+        query.find().then(function(results){
+          if(results != null && results.length > 0) {
+            var ulObj = $('.top-read-list')
+            for(var i = 0; i < results.length; i++) {
+              var articleObj = results[i];
+              var liStr = "<li><a href='https://priesttomb.github.io"+articleObj.get('post_url')+"'>"+articleObj.get('post_title')+"</a><p class='read-num'>访问次数：<span>"+articleObj.get('visited_times')+"</span></p></li>";
+              ulObj.append(liStr);
+            }
+          }
+        }, function(error){
+          if(window.console){
+            console.log('Failed to get post list, with error message: ' + error.message);
+          }
+          //异常时直接隐藏右边控件
+          $('.right').hide();
+        });
+      }
     }
 
     $(function() {
