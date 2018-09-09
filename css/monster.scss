@@ -247,6 +247,10 @@ table tfoot td {
     display: block;
 }
 
+.profile-avatar {
+  border-radius: 5px;
+}
+
 /* Social Icons */
 .social{
     width: 12em;
@@ -585,6 +589,7 @@ div .highlight {
 
     .header .top-avatar {
         display: block;
+        border-radius: 5px;
     }
 
     .header .top-social {
