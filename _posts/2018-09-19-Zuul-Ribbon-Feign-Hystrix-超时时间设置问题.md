@@ -235,7 +235,7 @@ hystrix:
 
 ## Zuul
 
-这个栗子的源码看[这里](https://github.com/PriestTomb/Spring-Cloud-Demo/tree/master/Eureka%2BZuul)，Zuul 中的降级是用了 `FallbackProvider`，简单的使用可以看我源码中的 `HelloFallbackProvider.java` 和 `HiFallbackProvider.java`，我也是参考了[官方的文档说明和例子](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#hystrix-fallbacks-for-routes)
+这个栗子的源码看[这里](https://github.com/PriestTomb/Spring-Cloud-Demo/tree/master/Eureka%2BZuul)，Zuul 中的降级是用了 `FallbackProvider`，简单的使用可以看我源码中的 [HelloFallbackProvider.java](https://github.com/PriestTomb/Spring-Cloud-Demo/blob/master/Eureka%2BZuul/spring-cloud-zuul/src/main/java/com/example/demo/fallback/HelloFallbackProvider.java) 和 [HiFallbackProvider.java](https://github.com/PriestTomb/Spring-Cloud-Demo/blob/master/Eureka%2BZuul/spring-cloud-zuul/src/main/java/com/example/demo/fallback/HiFallbackProvider.java)，我也是参考了[官方的文档说明和例子](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#hystrix-fallbacks-for-routes)
 
 #### 0. 默认基本配置
 
