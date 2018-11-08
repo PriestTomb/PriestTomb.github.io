@@ -162,4 +162,4 @@ function getLabelVal() {
 
 ## 效果图
 
-![效果图](http://oxujjb0ls.bkt.clouddn.com/image/jquery%E8%8E%B7%E5%8F%96%E6%A0%87%E7%AD%BE%E7%9A%84%E5%80%BC/%E6%95%88%E6%9E%9C%E5%9B%BE.png)
+![效果图.png](https://i.loli.net/2018/11/07/5be2f1b46b78e.png)

@@ -26,7 +26,7 @@ author:
 
 Eclipse 新建一个 Dynamic Web Project，然后转成的 Maven Project
 
-![项目结构](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png)
+![项目结构.png](https://i.loli.net/2018/11/07/5be2f17d78a2d.png)
 
 ---
 
@@ -663,19 +663,19 @@ public class BookController {
 
 新打开的页面：
 
-![列表页](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E5%88%97%E8%A1%A8%E9%A1%B5.png)
+![列表页.png](https://i.loli.net/2018/11/07/5be2f17d6247f.png)
 
 操作的页面：
 
-![操作页](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E9%A1%B5.png)
+![操作页.png](https://i.loli.net/2018/11/07/5be2f17ce1c60.png)
 
 操作完成：
 
-![操作完成](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%88%90.png)
+![操作完成.png](https://i.loli.net/2018/11/07/5be2f17cc8d6d.png)
 
 返回列表：
 
-![返回列表](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8.png)
+![返回列表.png](https://i.loli.net/2018/11/07/5be2f17ceea24.png)
 
 ---
 
@@ -701,11 +701,11 @@ public class BookController {
 
 在写代码的过程中，由于一个地方的失误：
 
-![包路径写错](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/hibernate%E9%85%8D%E7%BD%AEmodel%E9%94%99%E8%AF%AF.png)
+![hibernate配置model错误.png](https://i.loli.net/2018/11/07/5be2f17ce6f76.png)
 
 把 model 的包路径写错了，导致：
 
-![返回object对象列表](http://oxujjb0ls.bkt.clouddn.com/image/springmvc%E5%AD%A6%E4%B9%A0/%E6%98%A0%E5%B0%84%E5%A4%B1%E8%B4%A5%E5%A4%96%E5%8A%A0%E7%BB%91%E5%AE%9A%E5%A4%B1%E8%B4%A5%E6%97%B6%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AFobject%E5%AF%B9%E8%B1%A1.png)
+![映射失败外加绑定失败时返回的是object对象.png](https://i.loli.net/2018/11/07/5be2f17de57b6.png)
 
 查到的对象不能绑定为 BookVO，而是 Object，这样的话在 jstl 中使用 对象.属性 的时候就报错了
 

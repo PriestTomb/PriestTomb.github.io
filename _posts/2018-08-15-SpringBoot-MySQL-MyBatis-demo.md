@@ -22,7 +22,7 @@ author:
 
 ## 项目结构
 
-![项目结构](http://oxujjb0ls.bkt.clouddn.com/image/springboot+mybatis/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png)
+![项目结构.png](https://i.loli.net/2018/11/07/5be2f37075c8b.png)
 
 ---
 
@@ -263,10 +263,10 @@ public class BookController {
 
 还是用 [Postman](https://www.getpostman.com/apps) 测试，在使用 PUT 或者 POST 时，要使用 json 传递对象，就要设置下 Content-Type：
 
-![设置contenttype](http://oxujjb0ls.bkt.clouddn.com/image/springboot+mybatis/contenttype%E8%AE%BE%E7%BD%AE%E6%88%90json.png)
+![contenttype设置成json.png](https://i.loli.net/2018/11/07/5be2f37012449.png)
 
 拼接对象：
 
-![拼接json对象](http://oxujjb0ls.bkt.clouddn.com/image/springboot+mybatis/PUT%E6%9B%B4%E6%96%B0.png)
+![PUT更新.png](https://i.loli.net/2018/11/07/5be2f370199d4.png)
 
 测试正常，over

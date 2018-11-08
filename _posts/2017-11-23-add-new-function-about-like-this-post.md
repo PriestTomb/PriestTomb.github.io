@@ -36,7 +36,7 @@ author:
 
 结合之前的 IP 判断、访客记录增加等功能，重新捋了下逻辑：
 
-![整体流程](http://oxujjb0ls.bkt.clouddn.com/image/%E5%8D%9A%E5%AE%A2%E6%96%B0%E5%A2%9E%E7%82%B9%E8%B5%9E%E5%8A%9F%E8%83%BD/%E6%96%B0%E7%9A%84%E6%B5%81%E7%A8%8B.png)
+![新的流程.png](https://i.loli.net/2018/11/07/5be2f13173f78.png)
 
 ## 改造数据库表
 
@@ -56,7 +56,7 @@ author:
 
 ## 实现效果
 
-![实现效果](http://oxujjb0ls.bkt.clouddn.com/image/%E5%8D%9A%E5%AE%A2%E6%96%B0%E5%A2%9E%E7%82%B9%E8%B5%9E%E5%8A%9F%E8%83%BD/%E5%AE%9E%E7%8E%B0%E6%95%88%E6%9E%9C.png)
+![实现效果.png](https://i.loli.net/2018/11/07/5be2f131014f8.png)
 
 ## 最后
 

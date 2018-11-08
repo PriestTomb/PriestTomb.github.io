@@ -22,7 +22,7 @@ author:
 
 **写到这里我忽然想起来一件事，于是去测试了一下，发现。。把 sohu 的地址改成 https 也能正常访问。。**
 
-![背锅](http://oxujjb0ls.bkt.clouddn.com/image/%E8%A1%A8%E6%83%85%E5%8C%85/%E8%BF%99%E4%B8%AA%E9%94%85%E6%88%91%E8%83%8C.jpg)
+![这个锅我背了.jpg](https://i.loli.net/2018/11/08/5be442af6040f.jpg)
 
 让我们先忽略这个问题。。继续。。
 

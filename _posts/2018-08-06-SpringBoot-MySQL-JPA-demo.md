@@ -24,15 +24,15 @@ author:
 
 IDEA 现在可以直接新建 SpringBoot 工程，Eclipse 的话，暂时还是需要自己安装插件，就是这个 Spring Tools
 
-![Spring Tools](http://oxujjb0ls.bkt.clouddn.com/image/springbootdemo/spring%20tools.png)
+![spring tools.png](https://i.loli.net/2018/11/07/5be2f3444608e.png)
 
 搜索安装后就可以直接新建 Spring Boot 工程了
 
-![New Project](http://oxujjb0ls.bkt.clouddn.com/image/springbootdemo/New.png)
+![New.png](https://i.loli.net/2018/11/07/5be2f343d0599.png)
 
 这是最终的项目结构：
 
-![项目结构](http://oxujjb0ls.bkt.clouddn.com/image/springbootdemo/%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.png)
+![代码结构.png](https://i.loli.net/2018/11/07/5be2f343dfb37.png)
 
 ---
 
@@ -205,4 +205,4 @@ emm 用了 [Postman](https://www.getpostman.com/apps)，可以方便的选择使
 
 比如：
 
-![请求测试](http://oxujjb0ls.bkt.clouddn.com/image/springbootdemo/Post%E6%96%B0%E5%A2%9E.png)
+![Post新增.png](https://i.loli.net/2018/11/07/5be2f343e1ac0.png)
