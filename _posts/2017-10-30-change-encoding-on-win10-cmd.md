@@ -16,11 +16,11 @@ author:
 
 之前编译 WebService 客户端代码时发现 Win10 的控制台有乱码，平时习惯 Win + R 输 cmd 的方式打开默认的 cmd 控制台，发现乱码后又看了眼管理员模式，发现不是乱码：
 
-![发现乱码](http://oxujjb0ls.bkt.clouddn.com/image/win10%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%BC%96%E7%A0%81/%E4%B9%B1%E7%A0%81.png)
+![乱码.png](https://i.loli.net/2018/11/07/5be2efae427b2.png)
 
 用 chcp 命令查了下，发现是两个控制台的编码不同，一个是 utf8，一个是 gbk：
 
-![chcp查看编码](http://oxujjb0ls.bkt.clouddn.com/image/win10%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%BC%96%E7%A0%81/chcp%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8B.png)
+![chcp命令查看.png](https://i.loli.net/2018/11/07/5be2efac3c192.png)
 
 默认控制台中执行命令：
 
@@ -34,7 +34,7 @@ chcp 936
 
 再执行之前的命令发现乱码正常了：
 
-![检查是否正常](http://oxujjb0ls.bkt.clouddn.com/image/win10%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%BC%96%E7%A0%81/%E6%94%B9%E7%BC%96%E7%A0%81%E5%86%8D%E6%B5%8B%E8%AF%95.png)
+![改编码再测试.png](https://i.loli.net/2018/11/07/5be2efad5376d.png)
 
 ---
 
@@ -46,8 +46,8 @@ Win + R 输入 regedit，打开注册表，找到：
 
 新建字符串值 autorun，值为'chcp 936'
 
-![新建autorun](http://oxujjb0ls.bkt.clouddn.com/image/win10%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%BC%96%E7%A0%81/%E6%96%B0%E5%BB%BAautorun.png)
+![新建autorun.png](https://i.loli.net/2018/11/07/5be2efac523a2.png)
 
 这样再打开控制台，就会默认先执行该命令：
 
-![默认先执行命令](http://oxujjb0ls.bkt.clouddn.com/image/win10%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%BC%96%E7%A0%81/%E9%BB%98%E8%AE%A4%E5%85%88%E6%89%A7%E8%A1%8C%E4%BA%86chcp%20936.png)
+![默认先执行了chcp 936.png](https://i.loli.net/2018/11/07/5be2efae08b50.png)

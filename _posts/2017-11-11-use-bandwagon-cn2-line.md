@@ -38,13 +38,13 @@ TAT 剁手成功
 
 我 ping ！
 
-![ping65](http://oxujjb0ls.bkt.clouddn.com/image/CN2%E7%9C%9F%E5%A5%BD%E7%94%A8/%E6%88%91%E7%9A%8465.png)
+![我的65.png](https://i.loli.net/2018/11/07/5be2f06806265.png)
 
 什么？？这....开玩笑的吧？这还是 CN2 线路嘛？？
 
 用 [ipip.net](https://www.ipip.net/) 查了下
 
-![路由检查](http://oxujjb0ls.bkt.clouddn.com/image/CN2%E7%9C%9F%E5%A5%BD%E7%94%A8/%E4%BB%8E59%E5%87%BA%E5%8E%BB.png)
+![从59出去.png](https://i.loli.net/2018/11/07/5be2f0681f665.png)
 
 确实是从 59.43 出去的，看样子没什么毛病，但....
 
@@ -64,11 +64,11 @@ TAT 剁手成功
 
 本来我想直接回复他说我尝试切了，但 IP 还是一样，但抱着怀疑的态度还是去控制台看了下‘Migrate to another DC’
 
-![DC3](http://oxujjb0ls.bkt.clouddn.com/image/CN2%E7%9C%9F%E5%A5%BD%E7%94%A8/%E7%94%A8%E7%9A%84%E5%AE%9E%E9%99%85%E6%98%AFDC3.png)
+![用的实际是DC3.png](https://i.loli.net/2018/11/07/5be2f067a676e.png)
 
 发现比上午自己换机房的时候多了一个出来，而我目前虽然在 CN2 线路，但是是在 DC3，而不是客服推荐的 DC8，感觉有点奇怪，应该不是我上午眼花吧，幸好上午为了标记"相比之下还不错的机房"还留了张截图：
 
-![只有一个DC8](http://oxujjb0ls.bkt.clouddn.com/image/CN2%E7%9C%9F%E5%A5%BD%E7%94%A8/%E4%B8%8A%E5%8D%88%E7%9A%84%E6%88%AA%E5%9B%BE.png)
+![上午的截图.png](https://i.loli.net/2018/11/07/5be2f06804b9c.png)
 
 上午的时候果然只显示了一个 CN2 线路，叫 DC8，怀疑是 **bandwagon 他们新开放了 CN2 线路的数据中心，叫 DC3，但对外只显示一个，叫 DC8，而我上午被分配到了 DC3，所以 IP 是 65 开头的新 IP**
 
@@ -78,7 +78,7 @@ TAT 剁手成功
 
 测试：
 
-![新的198](http://oxujjb0ls.bkt.clouddn.com/image/CN2%E7%9C%9F%E5%A5%BD%E7%94%A8/%E6%96%B0%E7%9A%84198.png)
+![新的198.png](https://i.loli.net/2018/11/07/5be2f0682117f.png)
 
 一切正常！打开油管，切换 1080，很顺畅！
 
