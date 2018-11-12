@@ -31,7 +31,7 @@ author:
 
 ## 环境说明
 
-* Nginx 1.14.1
+* Nginx 1.14.0
 
 * Linux 2.6.32
 
