@@ -1,3 +1,6 @@
+code {
+  font-family: Consolas,"Microsoft YaHei" !important;
+}
 pre[class='highlight'] {
   background-color: #2b2b2b;
 }
