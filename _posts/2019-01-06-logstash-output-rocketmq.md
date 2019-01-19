@@ -83,6 +83,10 @@ require "java"
 # 自己写的插件类需要继承对应的 Base 类
 class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
 
+  # 设置插件可多线程并发执行
+  # 默认为 single，即使配置多个 workers，也只能依次运行 multi_receive 方法（性能上来说变成单线程）
+  concurrency :shared
+
   config_name "rocketmq"
 
   # 使用 config 定义插件运行所需要的基本参数
@@ -100,6 +104,9 @@ class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
 
   # Message 的 tag
   config :tag, :validate => :string, :default => "defaultTag"
+
+  # Message 的 key
+  config :key, :validate => :string, :default => "defaultKey"
 
   # 发送异常后的重试次数，默认 2 次
   config :retry_times, :validate => :number, :default => 2
@@ -119,6 +126,7 @@ class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
   # 接收事件方法，接收 events 对象，在其他插件里还有看到 multi_receive_encoded 方法
   # 入参是 events_and_data 对象，这两个方法有什么不同我反正是不懂
   def multi_receive(events)
+    return if events.empty?
     events.each do |event|
       retrying_send(event)
     end
@@ -140,20 +148,17 @@ class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
 
   # 生产者客户端核心功能方法
   def retrying_send(event)
-    message_to_send = event
-
-    # 配置 message 对象
-    @mq_message = org.apache.rocketmq.common.message.Message.new
-    @mq_message.setTopic(topic)
-    @mq_message.setTags(tag)
-    @mq_message.setBody("#{message_to_send}".bytes)
-
-    sent_times = 1
+    sent_times = 0
 
     begin
+      # 配置 message 对象
+      @mq_message = org.apache.rocketmq.common.message.Message.new
+      @mq_message.setTopic(topic)
+      @mq_message.setTags(tag)
+      @mq_message.setKeys(key)
+      @mq_message.setBody("#{event}".bytes)
       result = @producer.send(@mq_message)
 
-      # 返回结果为 null 或 发送状态不是成功，则抛异常进行重试
       if result.nil?
         raise "Send message error! Result is null."
       end
@@ -172,7 +177,7 @@ class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
         retry
       else
         # 根据实际需求处理没发送成功的消息
-        puts "Message send failed: #{message_to_send}"
+        puts "Message send failed: #{event}"
       end
     end
   end
