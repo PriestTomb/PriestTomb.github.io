@@ -152,12 +152,12 @@ class LogStash::Outputs::Rocketmq < LogStash::Outputs::Base
 
     begin
       # 配置 message 对象
-      @mq_message = org.apache.rocketmq.common.message.Message.new
-      @mq_message.setTopic(topic)
-      @mq_message.setTags(tag)
-      @mq_message.setKeys(key)
-      @mq_message.setBody("#{event}".bytes)
-      result = @producer.send(@mq_message)
+      mq_message = org.apache.rocketmq.common.message.Message.new
+      mq_message.setTopic(topic)
+      mq_message.setTags(tag)
+      mq_message.setKeys(key)
+      mq_message.setBody("#{event}".bytes)
+      result = @producer.send(mq_message)
 
       if result.nil?
         raise "Send message error! Result is null."
