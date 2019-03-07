@@ -74,6 +74,8 @@ Rocketmq 4.2
 
 因为整个脚本的内容不多，我这里就直接附代码了，在代码注释中进行详细的介绍说明
 
+**注：这篇博客里的代码不再更新，最新的插件代码可以到[库里](https://github.com/PriestTomb/logstash-output-rocketmq)看**
+
 ```ruby
 # encoding: utf-8
 require "logstash/outputs/base"
