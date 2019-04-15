@@ -226,7 +226,9 @@
       var likeState = curIpVisitRecord.get('like_this_post');
       if(likeState == 1){
         $("#likeBtn").css("color", "red");
-        $("#likeBtn").attr("onclick", "likePost(-1)");
+        $("#likeBtn").attr("onclick", "alert('点了赞还想取消？哼o(￣ヘ￣o＃)')");
+        //mod by PriestTomb 2019-04-15 点了赞就憋想跑了
+        //$("#likeBtn").attr("onclick", "likePost(-1)");
       } else {
         $("#likeBtn").css("color", "black");
         $("#likeBtn").attr("onclick", "likePost(1)");
@@ -235,7 +237,7 @@
     }
 
     //点赞(取消点赞)了文章
-    //type: -1-取消点赞  1-点赞
+    //type: 1-点赞
     function likePost(type) {
       if(curPost == null || curIpVisitRecord == null) {
         alert('别点那么快...请稍等...');
@@ -245,7 +247,6 @@
         return
       }
       bIsOperateEnd = false;
-      var AV_LikeLog = AV.Object.extend("like_log");
 
       //更新 Posts 表的点赞数量
       var oldNum = parseInt(curPost.get('like_times'));
@@ -253,51 +254,22 @@
       //curPost.fetchWhenSave(true);
       curPost.set('like_times', newNum);
       curPost.save(null, {fetchWhenSave:true}).then(function(curPost){
-        //新建log对象
-        var likeLog = new AV_LikeLog();
-        var acl = new AV.ACL();
-        acl.setPublicReadAccess(true);
-        acl.setPublicWriteAccess(true);
-        likeLog.setACL(acl);
-        likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
-        likeLog.set('post_url', curIpVisitRecord.get('post_url'));
-        likeLog.set('like_action', type.toString());
-        likeLog.set('old_num', oldNum);
-        likeLog.set('new_num', parseInt(curPost.get('like_times')));
-
         //成功后再更新 visitors_record 表的 like_this_post 字段，避免两张表的数据不统一
-        var likeThisPost = type == -1 ? 0 : 1;
         //curIpVisitRecord.fetchWhenSave(true);
-        curIpVisitRecord.set("like_this_post", likeThisPost);
+        curIpVisitRecord.set("like_this_post", 1);
         curIpVisitRecord.save(null, {fetchWhenSave:true}).then(function(curIpVisitRecord){
           refreshLikeBtn();
-          likeLog.save();
           bIsOperateEnd = true;
         }, function(error){
           if(window.console){
             console.log('Failed to create visitor record, with error message: ' + error.message);
           }
-          likeLog.set('err_msg', error.message);
-          likeLog.save();
           bIsOperateEnd = true;
         });
       }, function(error){
         if(window.console){
           console.log('Failed to create visitor record, with error message: ' + error.message);
         }
-        //新建log对象
-        var likeLog = new AV_LikeLog();
-        var acl = new AV.ACL();
-        acl.setPublicReadAccess(true);
-        acl.setPublicWriteAccess(true);
-        likeLog.setACL(acl);
-        likeLog.set('visitor_ip', curIpVisitRecord.get('visitor_ip'));
-        likeLog.set('post_url', curIpVisitRecord.get('post_url'));
-        likeLog.set('like_action', type.toString());
-        likeLog.set('old_num', oldNum);
-        likeLog.set('new_num', parseInt(curPost.get('like_times')));
-        likeLog.set('err_msg', error.message);
-        likeLog.save();
         bIsOperateEnd = true;
       });
     }
