@@ -1,6 +1,6 @@
 {% if site.leancloud.enable %}
-  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+  <script src="{{ site.baseurl }}/js/jquery-3.2.0.min.js"></script>
+  <script src="{{ site.baseurl }}/js/av-min.js"></script>
   <script>AV.init("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
   <script>
     //定义一个全局当前IP访问记录对象，用于更新访问记录、更新点赞记录
@@ -381,7 +381,6 @@
         <i class="fa fa-github" aria-hidden="true"></i>
       </a>
       &nbsp;|&nbsp;
-      <!-- <iframe style="margin-bottom:-5px;margin-left:5px;" src="https://ghbtns.com/github-btn.html?user=priesttomb&repo=priesttomb.github.io&type=star&count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe> -->
       <!-- 2017-12-14 加入站长统计 -->
       <span id='cnzz_stat_icon_1267535490'></span>
       <script src="https://s13.cnzz.com/z_stat.php?id=1267535490&show=pic" type='text/javascript'></script>
