@@ -2,9 +2,9 @@ code {
   font-family: Consolas,"Microsoft YaHei" !important;
 }
 code[class='highlighter-rouge'] {
-  background-color: #e4716c;
+  background-color: #f9f2f4;
   border-radius: 3px;
-  color: #ffffff;
+  color: #e34e48;
   padding-left: 4px;
   padding-right: 4px;
 }
