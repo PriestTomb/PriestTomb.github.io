@@ -1,7 +1,8 @@
 {% if site.leancloud.enable %}
   <script src="{{ site.baseurl }}/js/jquery-3.2.0.min.js"></script>
-  <script src="{{ site.baseurl }}/js/av-min.js"></script>
-  <script>AV.init("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
+  <!-- <script src="{{ site.baseurl }}/js/av-min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js"></script>
+  <script>AV.init({appId: "{{site.leancloud.app_id}}", appKey: "{{site.leancloud.app_key}}", serverURLs: "https://avoscloud.com",});</script>
   <script>
     //定义一个全局当前IP访问记录对象，用于更新访问记录、更新点赞记录
     var curIpVisitRecord = null;
