@@ -3,7 +3,7 @@ layout: post
 title: Filebeat采集数据不完整、一行数据被截断（inode重用问题）
 date: 2019-05-04
 categories: [小问题处理]
-tags: [Filebeat]
+tags: [ELK, Filebeat]
 status: publish
 type: post
 published: true

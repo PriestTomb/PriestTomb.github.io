@@ -2,9 +2,8 @@
 layout: post
 title: Filebeat+Logstash处理大批量数据时卡慢的问题探究
 date: 2019-02-20
-categories:
-- 问题探究
-tags: [Logstash, Filebeat]
+categories: [问题探究]
+tags: [ELK, Logstash, Filebeat]
 status: publish
 type: post
 published: true

@@ -2,9 +2,8 @@
 layout: post
 title: 写了个简单的logstash-output-rocketmq插件
 date: 2019-01-06
-categories:
-- 小代码
-tags: [Logstash, Rocketmq]
+categories: [小代码]
+tags: [ELK, Logstash, Rocketmq]
 status: publish
 type: post
 published: true
