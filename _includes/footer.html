@@ -355,6 +355,25 @@
       }
     }
 
+    function testFireBaseFunction() {
+      var options = {
+        type: 'GET',
+        url: "https://asia-northeast1-my-jekyll-blog.cloudfunctions.net/authAndGetKey"
+      };
+      $.ajax(options)
+      .done(function(data, textStatus, jqXHR) {
+        if(textStatus == "success") {
+          try {
+            console.log(data);
+          } catch (e) {
+            console.log("error")
+          }
+        } else {
+          console.log("fail")
+        }
+      });
+    }
+
     $(function() {
       if ($('.leancloud_visitors').length == 1) { //文章页面
         //先显示访问次数及赞数
@@ -366,6 +385,8 @@
 
       //不限制页面，都获取并显示访问量前五的文章
       //getTopReadArticleList();
+      testFireBaseFunction();
+
     });
   </script>
 {% endif %}
