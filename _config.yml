@@ -42,6 +42,14 @@ paginate_path: "/page/:num/"
 
 # 访问记录
 leancloud:
+  enable: false
+  app_id: xxx
+  app_key: xxx
+
+# firebase
+firebase:
   enable: true
-  app_id: sHOACpcLa8X13BWC7z1AFx3L-gzGzoHsz
-  app_key: D6LrgfFtGUteAInLJqtfjtx5
+  project_id: my-jekyll-blog
+  api_key: AIzaSyCZFEk_nCbqq2UKdS6RCDusZlyGNPknDPg
+  sender_id: 814452624014
+  app_id: 1:814452624014:web:0981e9e16b1a7aac

@@ -10,11 +10,11 @@
 				{{ page.date | date: "%Y-%m-%d" }}
 		</div>
 
-    {% if site.leancloud.enable %}
+    {% if site.firebase.enable %}
     <div>
-      <span id="{{ page.url }}" class="leancloud_visitors" data-flag-title="{{ page.title }}">
+      <span id="{{ page.url }}" class="database_visitor" data-flag-title="{{ page.title }}">
         Visited:
-        <a href="#"><span class="leancloud-visitors-count"></span>次</a>
+        <a href="#"><span class="database_visitor_count"></span>次</a>
       </span>
     </div>
     {% endif %}
