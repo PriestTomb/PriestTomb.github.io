@@ -11,7 +11,11 @@ Priest Tomb Blog
 
 #### 1. 访问次数
 
-使用了 LeanCloud，实现过程参考我[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/06/jekyll%E4%BD%BF%E7%94%A8LeanCloud%E8%AE%B0%E5%BD%95%E6%96%87%E7%AB%A0%E7%9A%84%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0/)的介绍
+~~使用了 LeanCloud，实现过程参考我[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/06/jekyll%E4%BD%BF%E7%94%A8LeanCloud%E8%AE%B0%E5%BD%95%E6%96%87%E7%AB%A0%E7%9A%84%E8%AE%BF%E9%97%AE%E6%AC%A1%E6%95%B0/)的介绍~~
+
+update 20190707
+
+由于近期 LeanCloud 需要**手持身份证**做实名认证，故放弃国内产品，改用 Google 的 Firebase，设计思路依旧可以参考 LeanCloud 那篇，细节部分略有修改，有空的话可以再写一篇用 Firebase 实现的文章
 
 #### 2. 评论功能
 
@@ -23,7 +27,11 @@ Priest Tomb Blog
 
 #### 4. 文章点赞
 
-因为没有所谓的登录用户用来判断访客身份，只能简单用IP做判断，和访问次数功能的实现很相似，实现思路参考我的[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/23/add-new-function-about-like-this-post/)
+~~因为没有所谓的登录用户用来判断访客身份，只能简单用IP做判断，和访问次数功能的实现很相似，实现思路参考我的[这篇文章](https://priesttomb.github.io/%E6%97%A5%E5%B8%B8/2017/11/23/add-new-function-about-like-this-post/)~~
+
+update 20190707
+
+同上述第1点中的原因，文章点赞的数据也已经转移到 Firebase，实现思路并没有过多的改动
 
 #### 5. 流量统计
 
