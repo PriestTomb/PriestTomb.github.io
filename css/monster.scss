@@ -81,9 +81,9 @@ table tfoot td {
 
 /** layout */
 .wrapper {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0px 0px 0px 150px;
+    padding: 0px 0px 0px 200px;
 }
 
 .header {
@@ -219,8 +219,8 @@ table tfoot td {
 
 /** menu **/
 .menu {
-    width: 12em;
-    margin-left: -15em;
+    width: 15em;
+    margin-left: -18em;
     text-transform: uppercase;
     font-family: "Electrolize",sans-serif;
 
@@ -240,8 +240,8 @@ table tfoot td {
 
 /** avatar **/
 .avatar {
-    width: 12em;
-    margin-left: -15em;
+    width: 15em;
+    margin-left: -18em;
     font-family: "Electrolize",sans-serif;
     text-align: center;
     display: block;
@@ -253,8 +253,8 @@ table tfoot td {
 
 /* Social Icons */
 .social{
-    width: 12em;
-    margin-left: -15em;
+    width: 15em;
+    margin-left: -18em;
     display: block;
     text-align: center;
 }
@@ -270,8 +270,8 @@ table tfoot td {
 
 /* search */
 .left-search {
-  width: 12em;
-  margin-left: -15em;
+  width: 15em;
+  margin-left: -18em;
   display: block;
   text-align: center;
 }
@@ -286,7 +286,7 @@ table tfoot td {
   border: 2px solid #363636;
   border-radius: 5px;
   height: 30px;
-  width: 195px;
+  width: 15em;
   padding-left: 20px;
 }
 
