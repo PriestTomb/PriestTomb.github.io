@@ -17,6 +17,10 @@ update 20190707
 
 由于近期 LeanCloud 需要**手持身份证**做实名认证，故放弃国内产品，改用 Google 的 Firebase，设计思路依旧可以参考 LeanCloud 那篇，细节部分略有修改，有空的话可以再写一篇用 Firebase 实现的文章
 
+update 20190901
+
+整理了[使用 Firebase 替代 LeanCloud 的文章](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2019/08/31/change-leancloud-to-firebase/)
+
 #### 2. 评论功能
 
 使用了 [gitalk](https://github.com/gitalk/gitalk)，参考项目的 README
@@ -36,3 +40,7 @@ update 20190707
 #### 5. 流量统计
 
 使用了第三方的站长统计
+
+#### 6. 广告
+
+使用了 [Google AdSense](https://www.google.com/adsense/start/)，一方面尝试下是不是能带来一点收入，一方面用潜在的收入来激励自己写博客，广告投放的位置会不断调整，毕竟还是不要影响阅读文章【来总脸：加点广告怎么了（雾）
