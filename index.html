@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div>
+    <div>
 
   	{% assign index = true %}
   	{% assign year  = '' %}
@@ -23,8 +23,9 @@ layout: default
         </li>
         <hr/>
     {% endfor %}
-    <!-- 只在每一页的最底部加一个广告，貌似不加载出来就会空白一块 -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- 只在每一页的最底部加一个广告，貌似不加载出来就会空白一块 -->
+      <!-- note by priesttomb 暂时关闭广告
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-format="fluid"
@@ -33,7 +34,7 @@ layout: default
            data-ad-slot="7871930630"></ins>
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      </script> -->
     </div>
     </ul>
 
