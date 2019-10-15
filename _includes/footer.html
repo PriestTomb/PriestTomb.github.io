@@ -93,7 +93,7 @@
     function addPostVisitedTimes() {
       var $visitors = $(".database_visitor");
       var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
+      var title = encodeURI($visitors.attr('data-flag-title').trim());
 
       if (curPost == null) {
         //没有记录，需要初始化
@@ -101,10 +101,11 @@
         curPost[curPostId + "/title"] = title;
         curPost[curPostId + "/like_times"] = 0;
         curPost[curPostId + "/visit_times"] = 1;
-        curPost[curPostId + "/update_time"] = new Date();
+        curPost[curPostId + "/update_time"] = dateFormat("yyyy-MM-dd hh:mm:ss");
       } else {
         //喜加一
         curPost[curPostId + "/visit_times"] += 1;
+        curPost[curPostId + "/update_time"] = dateFormat("yyyy-MM-dd hh:mm:ss");
       }
       var $element = $(document.getElementById(url));
       $element.find('.database_visitor_count').text(curPost[curPostId + "/visit_times"]);
@@ -115,7 +116,7 @@
     function showPostVisitedTimes() {
       var $visitors = $(".database_visitor");
       var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
+      var title = encodeURI($visitors.attr('data-flag-title').trim());
       curPostId = "/post/" + md5(url);
 
       database.ref(curPostId)
@@ -126,7 +127,7 @@
             curPost[curPostId + "/title"] = (snapshot.val() && snapshot.val().title) || title;
             curPost[curPostId + "/like_times"] = (snapshot.val() && snapshot.val().like_times) || 0;
             curPost[curPostId + "/visit_times"] = (snapshot.val() && snapshot.val().visit_times) || 1;
-            curPost[curPostId + "/update_time"] = (snapshot.val() && snapshot.val().update_time) || new Date();
+            curPost[curPostId + "/update_time"] = (snapshot.val() && snapshot.val().update_time) || dateFormat("yyyy-MM-dd hh:mm:ss");
 
             var $element = $(document.getElementById(url));
             $element.find('.database_visitor_count').text(curPost[curPostId + "/visit_times"]);
@@ -221,6 +222,26 @@
           });
         }
       });
+    }
+
+    function dateFormat(fmt) {
+      var curDate = new Date();
+      var o = {
+        "M+" : curDate.getMonth()+1, //月份
+        "d+" : curDate.getDate(),    //日
+        "h+" : curDate.getHours(),   //小时
+        "m+" : curDate.getMinutes(), //分
+        "s+" : curDate.getSeconds()  //秒
+      };
+      if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (curDate.getFullYear()+"").substr(4 - RegExp.$1.length));
+      }
+      for(var k in o) {
+        if(new RegExp("("+ k +")").test(fmt)){
+          fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        }
+      }
+      return fmt;
     }
 
     $(function() {
