@@ -15,13 +15,15 @@ author:
 
 ## 写在前面
 
+**注：文章最后更新于 2019-12-15**
+
 最近都在折腾 Nginx 服务器的学习和测试，前几天稍微温习了一下计算机网络方面的知识（一方面是兴趣，一方面是这次学习过程中因为这些计算机基础遗忘，有很多细节问题让人很懵逼），也在 Linux 上试了一下 `tcpdump` 命令，通过抓包来验证自己之前的各种猜想（因为不懂所以瞎猜），分析数据包依旧是用的 Wireshark
 
 之前一直以为只要使用 Http1.1 协议就可以复用连接，节省反复握手挥手的时间消耗，但抓包后才发现，"简简单单"的长连接使用，还真是涉及了 Nginx 、 JMeter 、 Tomcat 里的很多配置啊
 
 * JMeter 虽然在 Http 请求的配置中默认勾选了使用 KeepAlive，但是实际使用中并没有生效
 
-* Nginx 涉及到与客户端的配置 `keepalive_timeout` 和 `keepalive_requests`，与后端服务器的配置 `keepalive`（1.15.3之后，upstream 模块也新增了 `keepalive_timeout` 和 `keepalive_requests`，本篇暂不涉及）
+* Nginx 涉及到面向客户端的配置： `keepalive_timeout` 和 `keepalive_requests`，面向后端服务器的配置： `keepalive`（1.15.3之后，upstream 模块也新增了 `keepalive_timeout` 和 `keepalive_requests`，本篇暂不涉及）、 `proxy_http_version` 和 `proxy_set_header`
 
 * Tomcat 默认也有一个 `keepAliveTimeout` 配置
 
@@ -75,7 +77,7 @@ keepalive_timeout = 1
 
 #### 测试结果
 
-![验证keepalive_timeout.png](https://i.loli.net/2018/10/31/5bd9b707591eb.png)
+![验证keepalive_timeout](/images/blog_img/20181101/验证keepalive_timeout.png)
 
 #### 结果说明
 
@@ -117,7 +119,7 @@ curl http://172.16.40.224:6066/NginxTest/hi http://172.16.40.224:6066/NginxTest/
 
 #### 测试结果
 
-![验证keepalive_requests.png](https://i.loli.net/2018/10/31/5bd9b7075572f.png)
+![验证keepalive_requests](/images/blog_img/20181101/验证keepalive_requests.png)
 
 #### 结果说明
 
@@ -153,13 +155,46 @@ keepalive = 10
 
 #### 测试结果
 
-![验证keepalive.png](https://i.loli.net/2018/10/31/5bd9b707576a6.png)
+![验证keepalive1](/images/blog_img/20181101/验证keepalive1.png)
 
 #### 结果说明
 
 可以看出截至118秒(JMeter 逐渐停止发起测试请求)，都在逐个关闭 TCP 连接，截图部分大都是后端服务器响应的 FIN 包，稍微往前一点能看到都是由 Nginx 主动发起的关闭请求
 
 从138秒开始（后端 Tomcat 服务器的长连接超时时间默认20秒），剩余的10个长连接被后端服务器发起了关闭请求
+
+**---新补充截图及说明---**
+
+#### 测试结果2
+
+![验证keepalive2](/images/blog_img/20181101/验证keepalive2.png)
+
+#### 结果说明2
+
+设置了 keepalive = 10，查看其中一个活跃的端口48443，可以看到该端口有被重用，处理了数次请求，同样，在最后一次使用后20秒，从后端服务器发起了关闭 TCP 连接的请求
+
+#### 测试结果3
+
+![验证keepalive3](/images/blog_img/20181101/验证keepalive3.png)
+
+#### 结果说明3
+
+不设置 keepalive，即 Nginx 不保持和后端的长连接，可以看到即使使用了 HTTP/1.1 协议，每个端口在建立连接->发送请求后，立刻由 Nginx 发起了关闭请求
+
+---
+
+## 3. 和后端服务器之间的 HTTP 协议
+
+#### 指令说明
+
+> 语法：proxy_http_version 1.1;
+>      proxy_set_header Connection "";
+>
+> 上下文：location
+
+#### 测试结果及说明
+
+在 Nginx 1.14 中，Nginx 和后端服务器之间的协议默认还是 HTTP/1.0，所以想要使用长连接，不仅要配置长连接的个数，最关键的是要使用 HTTP/1.1 协议，官方提供的配置就是指定版本为1.1，并将 Connection 头设置为空
 
 ---
 
@@ -171,8 +206,8 @@ keepalive = 10
 sudo tcpdump -i eth0 host 172.16.40.xxx -w dumplog.pcap
 
 -i 指定网卡
-host 指定抓取和哪个 IP 之间的数据包
+host 指定抓取本机和哪个 IP 之间的数据包
 -w 将抓取结果保存到 pcap 文件，用于使用 Wireshark 查看
 ```
 
-通过上面的三个测试，理解和验证了 Nginx 分别在面向客户端和面向后端服务器时的长连接使用情况
+通过上面的几个测试，理解和验证了 Nginx 分别在面向客户端和面向后端服务器时的长连接使用情况
