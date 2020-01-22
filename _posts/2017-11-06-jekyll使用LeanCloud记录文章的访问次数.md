@@ -14,7 +14,15 @@ author:
   display_name: PriestTomb
 ---
 
-## 写在前面
+# 写在前面的前面
+
+**2020-01-22 注**
+
+该博文用于介绍 LeanCloud 创建相关内容及博客中如何实现对访问次数的记录等，但由于 LeanCloud 于 2019 年 7 月之后，需要使用手持身份证做实名，所以个人博客现已经放弃使用 LeanCloud，改用 Google Firebase
+
+相关博文详见[《Jekyll站点使用Firebase替代LeanCloud记录文章的访问次数》](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2019/08/31/change-leancloud-to-firebase/)
+
+# 写在前面
 
 在还没为博客引入评论功能前，先研究了下怎么像 hexo 那样能统计每篇文章的访问次数，查了几篇博客，是说借第三方的云存储，说白了就是一个云数据库，建张表，存着各博客的访问次数，有新访问时，就更新下数据。。
 
@@ -26,19 +34,19 @@ author:
 
 ---
 
-## 云端相关
+# 云端相关
 
-#### 1. 注册 LeanCloud
+### 1. 注册 LeanCloud
 
 我也不知道为什么好多人都是推荐用 [LeanCloud](https://leancloud.cn/)，就像图床大家喜欢用 [七牛](https://www.qiniu.com/) 差不多吧。。
 
-#### 2. 新建应用
+### 2. 新建应用
 
 使用免费的开发版也足够了，小博客的访问量哪里会有很多咯(QAQ)
 
 ![leancloud创建应用.png](https://i.loli.net/2018/11/07/5be2f0368eb3f.png)
 
-#### 3. 新建 Class
+### 3. 新建 Class
 
 应用创建完之后再新建 Class，可以理解成数据库里的一张张表
 
@@ -54,13 +62,13 @@ author:
 
 ![record表两个字段.png](https://i.loli.net/2018/11/07/5be2f0365640a.png)
 
-#### 4. 安全设置
+### 4. 安全设置
 
 关闭不需要的服务，配置安全域名，本地4000地址测试时可以先加上，测试完再删掉也行
 
 ![关闭不使用的服务及新增安全域名.png](https://i.loli.net/2018/11/07/5be2f0373b958.png)
 
-#### 5. 记下 AppID 和 AppKey
+### 5. 记下 AppID 和 AppKey
 
 ![记录id和key值.png](https://i.loli.net/2018/11/07/5be2f03894921.png)
 
@@ -70,9 +78,9 @@ author:
 
 ---
 
-## 本地代码
+# 本地代码
 
-#### 1. \_config.yml
+### 1. \_config.yml
 
 配置文件中新增以下配置：
 
@@ -83,7 +91,7 @@ leancloud:
   app_key: xxxxxxxxxxxxxxx
 ```
 
-#### 2. footer.html
+### 2. footer.html
 
 任意一个 \_includes 目录下的 且 在 default.html 中引入的文件都行，我使用了 footer.html
 
@@ -278,7 +286,7 @@ leancloud:
 {% endraw %}
 ```
 
-#### 3. default.html
+### 3. default.html
 
 把 footer.html 引入
 
@@ -288,7 +296,7 @@ leancloud:
 {% endraw %}
 ```
 
-#### 4. post.html
+### 4. post.html
 
 在文章页面自己想展示访问次数的地方加上
 
@@ -305,13 +313,13 @@ leancloud:
 {% endraw %}
 ```
 
-#### 5. 效果
+### 5. 效果
 
 ![效果.png](https://i.loli.net/2018/11/07/5be2f03890be4.png)
 
 ---
 
-## 最后
+# 最后
 
 本文参考：
 
