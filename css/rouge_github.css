@@ -1,6 +1,13 @@
 code {
   font-family: Consolas,"Microsoft YaHei" !important;
 }
+code[class='language-plaintext highlighter-rouge'] {
+  background-color: #f9f2f4;
+  border-radius: 3px;
+  color: #e34e48;
+  padding-left: 4px;
+  padding-right: 4px;
+}
 code[class='highlighter-rouge'] {
   background-color: #f9f2f4;
   border-radius: 3px;
