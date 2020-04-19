@@ -5,59 +5,6 @@
     <a href="/">{{ site.title }}</a>
   </div>
 
-  <div class="top-personinfo">
-    <div class="top-up">
-      <img class="top-avatar" src="{{ site.author_avatar }}" height="100px" width="100px" />
-
-      <div class="top-social">
-    		<ul>
-    			{% if site.twitter_username %}
-    			<li>
-              <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}">
-                  <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-              </a>
-          </li>
-    			{% endif %}
-    			{% if site.github_username %}
-    			<li>
-              <a target="_blank" href="https://github.com/{{ site.github_username }}">
-                  <span class="fa-stack fa-lg">
-                      <i class="fa fa-circle fa-stack-2x"></i>
-                      <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                  </span>
-              </a>
-          </li>
-    			{% endif %}
-    			{% if site.zhihu_username %}
-    			<li>
-    	        <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
-    	            <span class="fa-stack fa-lg">
-    	                <i class="fa fa-circle fa-stack-2x"></i>
-    	                <i class="fa fa-stack-1x fa-inverse">知</i>
-    	            </span>
-    	        </a>
-    	    </li>
-    			{% endif %}
-    			{% if site.my_email %}
-    			<li>
-    	        <a target="_blank" href="mailto:{{ site.my_email }}">
-    	            <span class="fa-stack fa-lg">
-    	                <i class="fa fa-circle fa-stack-2x"></i>
-    	                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-    	            </span>
-    	        </a>
-    	    </li>
-    			{% endif %}
-    		</ul>
-    	</div>
-    </div>
-
-    <h3 class="top-author">{{ site.author }}</h3>
-  </div>
-
   <div class="links">
       {% assign current = page.title %}
       <a href="/" class="page-link{% if current == null %} active{% endif %}">Blog</a>

@@ -4,51 +4,6 @@
 			<h2 class="author-name">{{ site.author }}</h2>
 	</div>
 	<br/>
-	<div class="social">
-		<ul>
-			{% if site.twitter_username %}
-			<li>
-          <a target="_blank" href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-          </a>
-      </li>
-			{% endif %}
-			{% if site.github_username %}
-			<li>
-          <a target="_blank" href="https://github.com/{{ site.github_username }}">
-              <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-          </a>
-      </li>
-			{% endif %}
-			{% if site.zhihu_username %}
-			<li>
-	        <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
-	            <span class="fa-stack fa-lg">
-	                <i class="fa fa-circle fa-stack-2x"></i>
-	                <i class="fa fa-stack-1x fa-inverse">知</i>
-	            </span>
-	        </a>
-	    </li>
-			{% endif %}
-			{% if site.my_email %}
-			<li>
-	        <a target="_blank" href="mailto:{{ site.my_email }}">
-	            <span class="fa-stack fa-lg">
-	                <i class="fa fa-circle fa-stack-2x"></i>
-	                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
-	            </span>
-	        </a>
-	    </li>
-			{% endif %}
-		</ul>
-	</div>
-	<br/>
 
 	<!-- 左侧搜索框 -->
 	<div class="left-search" id="search-container">
