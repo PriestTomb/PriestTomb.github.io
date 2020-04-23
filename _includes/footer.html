@@ -75,6 +75,7 @@
             curVisitor = {};
             curVisitor[curVisitorId + "/update_time"] = (snapshot.val() && snapshot.val().update_time) || 0;
             curVisitor[curVisitorId + "/like_post"] = (snapshot.val() && snapshot.val().like_post) || false;
+            curVisitor[curVisitorId + "/host"] = window.location.host;
             updateIpRecord();
             refreshLikeBtn();
           } else {
@@ -102,6 +103,7 @@
         curPost[curPostId + "/like_times"] = 0;
         curPost[curPostId + "/visit_times"] = 1;
         curPost[curPostId + "/update_time"] = dateFormat("yyyy-MM-dd hh:mm:ss");
+        curPost[curPostId + "/host"] = window.location.host;
       } else {
         //喜加一
         curPost[curPostId + "/visit_times"] += 1;
@@ -128,6 +130,7 @@
             curPost[curPostId + "/like_times"] = (snapshot.val() && snapshot.val().like_times) || 0;
             curPost[curPostId + "/visit_times"] = (snapshot.val() && snapshot.val().visit_times) || 1;
             curPost[curPostId + "/update_time"] = (snapshot.val() && snapshot.val().update_time) || dateFormat("yyyy-MM-dd hh:mm:ss");
+            curPost[curPostId + "/host"] = window.location.host;
 
             var $element = $(document.getElementById(url));
             $element.find('.database_visitor_count').text(curPost[curPostId + "/visit_times"]);
@@ -169,6 +172,7 @@
       curVisitor[curVisitorId + "/create_time"] = timestamp;
       curVisitor[curVisitorId + "/update_time"] = timestamp;
       curVisitor[curVisitorId + "/like_post"] = false;
+      curVisitor[curVisitorId + "/host"] = window.location.host;
       database.ref().update(curVisitor);
     }
 
