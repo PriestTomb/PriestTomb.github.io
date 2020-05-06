@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nginx 转发域名接口 400 Bad Request 报错
+title: Nginx 转发域名地址报 400 Bad Request
 date: 2020-05-05
 categories:
 - 技术
