@@ -44,7 +44,7 @@ author:
 
 使用免费的开发版也足够了，小博客的访问量哪里会有很多咯(QAQ)
 
-![leancloud创建应用.png](https://i.loli.net/2018/11/07/5be2f0368eb3f.png)
+![leancloud创建应用.png](/images/blog_img/20171106/leancloud创建应用.png)
 
 ### 3. 新建 Class
 
@@ -52,25 +52,25 @@ author:
 
 这里需要建两张表：
 
-![新建两个CLASS.png](https://i.loli.net/2018/11/07/5be2f035cd5fc.png)
+![新建两个CLASS.png](/images/blog_img/20171106/新建两个CLASS.png)
 
 首先是访问次数的表，新增三个字段：文章URL、文章标题、已访问的次数
 
-![times表三个字段.png](https://i.loli.net/2018/11/07/5be2f03655349.png)
+![times表三个字段.png](/images/blog_img/20171106/times表三个字段.png)
 
 其次是每个访客的记录表，新增两个字段：访客IP、访问的文章URL
 
-![record表两个字段.png](https://i.loli.net/2018/11/07/5be2f0365640a.png)
+![record表两个字段.png](/images/blog_img/20171106/record表两个字段.png)
 
 ### 4. 安全设置
 
 关闭不需要的服务，配置安全域名，本地4000地址测试时可以先加上，测试完再删掉也行
 
-![关闭不使用的服务及新增安全域名.png](https://i.loli.net/2018/11/07/5be2f0373b958.png)
+![关闭不使用的服务及新增安全域名.png](/images/blog_img/20171106/关闭不使用的服务及新增安全域名.png)
 
 ### 5. 记下 AppID 和 AppKey
 
-![记录id和key值.png](https://i.loli.net/2018/11/07/5be2f03894921.png)
+![记录id和key值.png](/images/blog_img/20171106/记录id和key值.png)
 
 像官方所说：
 
@@ -315,7 +315,7 @@ leancloud:
 
 ### 5. 效果
 
-![效果.png](https://i.loli.net/2018/11/07/5be2f03890be4.png)
+![效果.png](/images/blog_img/20171106/效果.png)
 
 ---
 

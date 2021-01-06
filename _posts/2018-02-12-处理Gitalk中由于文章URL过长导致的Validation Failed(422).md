@@ -24,7 +24,7 @@ HTTP 编码为 422，大家应该都已经知道了这个问题的原因：文�
 
 最近刚从 gitment 改成 gitalk，因为在 gitalk 中可以设置这些参数，今天在 gitalk 的 [issue#102](https://github.com/gitalk/gitalk/issues/102) 里看到一个小哥提了个思路：
 
-![解决思路.png](https://i.loli.net/2018/11/07/5be2f29518eed.png)
+![解决思路.png](/images/blog_img/20180212/解决思路.png)
 
 觉得可行，于是就试了一下
 
@@ -61,7 +61,7 @@ var gitalk = new Gitalk({
 
 因为没做过微信相关的开发，也没在微信内置浏览器中开过博客，所以也是头一次听说这种问题，自己也测试了一下，发现确实是这样的：
 
-![微信打开问题.png](https://i.loli.net/2018/11/07/5be2f2952458d.png)
+![微信打开问题.png](/images/blog_img/20180212/微信打开问题.png)
 
 这样一来，label 过长的问题虽然解决了，但因为微信内置浏览器会改 title，相当于还是留下了一个问题，下午稍微研究了下，暂时也不知道怎么解决
 
@@ -73,7 +73,7 @@ var gitalk = new Gitalk({
 
 来填坑啦~
 
-![微信打开问题解决方案.png](https://i.loli.net/2018/11/07/5be2f2952174e.png)
+![微信打开问题解决方案.png](/images/blog_img/20180212/微信打开问题解决方案.png)
 
 [@jianhuisu](https://github.com/jianhuisu) 今天说把 location.href 改成 location.pathname 就可以了
 

@@ -94,7 +94,7 @@ location / {
 
 ### 0. Postman
 
-![Postman使用认证.png](https://i.loli.net/2019/06/22/5d0d9a8f3371283876.png)
+![Postman使用认证.png](/images/blog_img/20190622/Postman使用认证.png)
 
 如图所示，在使用 REST API 时，在 **Authorization** 中选择加密类型，并输入用户名密码即可
 

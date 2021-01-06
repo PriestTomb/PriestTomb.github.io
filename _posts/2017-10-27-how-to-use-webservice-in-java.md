@@ -36,7 +36,7 @@ author:
 
 #### 1. 新建 Dinamic Web Project
 
-![新建webservice服务端工程.png](https://i.loli.net/2018/11/07/5be2ee719027d.png)
+![新建webservice服务端工程.png](/images/blog_img/20171027/新建webservice服务端工程.png)
 
 #### 2. 新建服务端测试类
 
@@ -67,17 +67,17 @@ public class TestServer {
 
 #### 3. 启动工程
 
-![启动服务端.png](https://i.loli.net/2018/11/07/5be2ee719e046.png)
+![启动服务端.png](/images/blog_img/20171027/启动服务端.png)
 
 #### 4. 测试服务
 
 ###### 4.1 浏览器查看
 
-![浏览器测试.png](https://i.loli.net/2018/11/07/5be2ee6fb6ba3.png)
+![浏览器测试.png](/images/blog_img/20171027/浏览器测试.png)
 
 ###### 4.2 soapUI测试
 
-![soapUI测试.png](https://i.loli.net/2018/11/07/5be2ee2f3dc54.png)
+![soapUI测试.png](/images/blog_img/20171027/soapUI测试.png)
 
 
 服务端完成，接下来以各种方式写客户端代码
@@ -90,7 +90,7 @@ public class TestServer {
 
 使用 java 自带的 wsimport 命令：
 
-![wsimport生成客户端.png](https://i.loli.net/2018/11/07/5be2ee2f1e60d.png)
+![wsimport生成客户端.png](/images/blog_img/20171027/wsimport生成客户端.png)
 
 ```
 wsimport -s F:\workspace\eclipse_workspace\WebServiceClientDemo\src -p com.priest.client -keep http://localhost:8088/service/TestServer?wsdl
@@ -105,7 +105,7 @@ wsimport -s F:\workspace\eclipse_workspace\WebServiceClientDemo\src -p com.pries
 
 #### 2. 查看生成的客户端类
 
-![生成的客户端类.png](https://i.loli.net/2018/11/07/5be2ee6f98127.png)
+![生成的客户端类.png](/images/blog_img/20171027/生成的客户端类.png)
 
 #### 3. 写客户端测试类
 
@@ -127,7 +127,7 @@ public class TestClient1 {
 
 #### 4. 执行调用
 
-![客户端1测试.png](https://i.loli.net/2018/11/07/5be2ee2f1dcf9.png)
+![客户端1测试.png](/images/blog_img/20171027/客户端1测试.png)
 
 ---
 
@@ -165,7 +165,7 @@ public class TestClient2 {
 
 #### 3. 执行调用
 
-![客户端2测试.png](https://i.loli.net/2018/11/07/5be2ee2f37d11.png)
+![客户端2测试.png](/images/blog_img/20171027/客户端2测试.png)
 
 ---
 
@@ -227,7 +227,7 @@ public class TestClient3 {
 
 #### 3. 执行调用
 
-![客户端3测试.png](https://i.loli.net/2018/11/07/5be2ee2f42cad.png)
+![客户端3测试.png](/images/blog_img/20171027/客户端3测试.png)
 
 有个警告，是：
 
@@ -247,7 +247,7 @@ Unable to find required classes (javax.activation.DataHandler and javax.mail.int
 
 #### 2. 查看生成的客户端类
 
-![axis生成的客户端类.png](https://i.loli.net/2018/11/07/5be2ee2e96a79.png)
+![axis生成的客户端类.png](/images/blog_img/20171027/axis生成的客户端类.png)
 
 #### 3. 写客户端测试类
 
@@ -277,7 +277,7 @@ public class TestClient4 {
 
 #### 4. 执行调用
 
-![客户端4测试.png](https://i.loli.net/2018/11/07/5be2ee2fae95a.png)
+![客户端4测试.png](/images/blog_img/20171027/客户端4测试.png)
 
 报错内容和上面 客户端3 章节里的一样，因为缺了两个 jar 包
 
@@ -354,7 +354,7 @@ public class TestClinent5 {
 
 #### 3. 执行调用
 
-![客户端5测试.png](https://i.loli.net/2018/11/07/5be2ee2fc4316.png)
+![客户端5测试.png](/images/blog_img/20171027/客户端5测试.png)
 
 ---
 
@@ -410,7 +410,7 @@ public class TestClient6 {
 
 #### 3. 执行调用
 
-![客户端6测试.png](https://i.loli.net/2018/11/07/5be2ee6ce2ba6.png)
+![客户端6测试.png](/images/blog_img/20171027/客户端6测试.png)
 
 ---
 
@@ -422,7 +422,7 @@ public class TestClient6 {
 
 #### 2. 查看生成的客户端类
 
-![axis2生成的客户端类.png](https://i.loli.net/2018/11/07/5be2ee2e89dea.png)
+![axis2生成的客户端类.png](/images/blog_img/20171027/axis2生成的客户端类.png)
 
 服务端开放的方法(testMethod) 及对应的返回(testMethodResponse) 都生成了两个，以 E 为结尾的那个是由于服务端不是用 AXIOM 的方式写及开放的，自动生成时为了使用 axis2 的 OMElement，对 testMethod 和 testMethodResponse 做了一点"封装"(这么说不准确，但目前还不清楚这种生成现象的原理，学习到了再回来修改完善)
 
@@ -454,7 +454,7 @@ public class TestClient7 {
 
 #### 4. 执行调用
 
-![客户端7测试.png](https://i.loli.net/2018/11/07/5be2ee6d058b0.png)
+![客户端7测试.png](/images/blog_img/20171027/客户端7测试.png)
 
 ---
 

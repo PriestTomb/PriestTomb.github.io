@@ -22,7 +22,7 @@ author:
 
 ## 项目结构
 
-![项目结构.png](https://i.loli.net/2018/11/07/5be2f37075c8b.png)
+![项目结构.png](/images/blog_img/20180815/项目结构.png)
 
 ---
 
@@ -263,10 +263,10 @@ public class BookController {
 
 还是用 [Postman](https://www.getpostman.com/apps) 测试，在使用 PUT 或者 POST 时，要使用 json 传递对象，就要设置下 Content-Type：
 
-![contenttype设置成json.png](https://i.loli.net/2018/11/07/5be2f37012449.png)
+![contenttype设置成json.png](/images/blog_img/20180815/contenttype设置成json.png)
 
 拼接对象：
 
-![PUT更新.png](https://i.loli.net/2018/11/07/5be2f370199d4.png)
+![PUT更新.png](/images/blog_img/20180815/PUT更新.png)
 
 测试正常，over

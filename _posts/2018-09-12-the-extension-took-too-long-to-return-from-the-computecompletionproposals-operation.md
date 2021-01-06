@@ -18,7 +18,7 @@ author:
 
 近期学习 Spring Boot 和 Spring Cloud，在 Eclipse 下经常出现代码补全的时候卡未响应然后报错，就是这个
 
-![报错信息.png](https://i.loli.net/2018/11/07/5be2f41458dcf.png)
+![报错信息.png](/images/blog_img/20180912/报错信息.png)
 
 ---
 
@@ -26,7 +26,7 @@ author:
 
 网上随便搜搜，这是个历史悠久的问题（很奇怪我以前没遇到过。。），最开始看到的解决方案是点报错里的那个链接，到设置页面取消 `Java Proposals(Code Recommenders)`，同时勾选另外两个 `Java Proposals`
 
-![解决方案1.png](https://i.loli.net/2018/11/07/5be2f414aeea7.png)
+![解决方案1.png](/images/blog_img/20180912/解决方案1.png)
 
 实际证明可以"解决"，确实不会卡死了，但是。。会造成代码提示不再"智能"，想补全的内容还要自己按好多次 `Alt+/` 才能找到，这就很尴尬了，这根本就不算解决方案！
 
@@ -56,7 +56,7 @@ author:
 
 * 保留最少的推荐方案，如下
 
-![我的解决方案.png](https://i.loli.net/2018/11/07/5be2f4145936e.png)
+![我的解决方案.png](/images/blog_img/20180912/我的解决方案.png)
 
 ---
 

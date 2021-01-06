@@ -36,7 +36,7 @@ author:
 
 结合之前的 IP 判断、访客记录增加等功能，重新捋了下逻辑：
 
-![新的流程.png](https://i.loli.net/2018/11/07/5be2f13173f78.png)
+![新的流程.png](/images/blog_img/20171123/新的流程.png)
 
 ## 改造数据库表
 
@@ -56,7 +56,7 @@ author:
 
 ## 实现效果
 
-![实现效果.png](https://i.loli.net/2018/11/07/5be2f131014f8.png)
+![实现效果.png](/images/blog_img/20171123/实现效果.png)
 
 ## 最后
 
