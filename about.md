@@ -28,8 +28,6 @@ PriestTomb，1993年生人，目前在榕城虎纠谋生，过几年会回到中
 
 ## 相关链接
 
-[原CSDN博客](http://blog.csdn.net/mxmxz)：有一些没(懒得)迁移的博客
-
 [斗鱼直播间](https://www.douyu.com/3612858)：无名小主播，偶尔会打游戏
 
 [本站源码](https://github.com/PriestTomb/PriestTomb.github.io)：喜欢可叉，欢迎改造
