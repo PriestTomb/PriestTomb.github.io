@@ -85,6 +85,10 @@ server {
 
 这两种配置都可以成功转发，因为转发的是域名地址，其实还涉及到 Nginx 在 DNS 解析方面的一个配置问题，暂且挖个坑，回头学习学习再来填上
 
+--- update 20210305 ---
+
+文章写完忘了更新这一篇了，补上：[《Nginx 代理域名地址时的 DNS 缓存问题》](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2020/05/17/nginx-cached-dns-server-resolvered-answer/)
+
 ---
 
 # 再折腾折腾
