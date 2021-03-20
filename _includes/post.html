@@ -43,16 +43,19 @@
 <div class="entry post">
 	<div class="entry-content">
 	  <article class="entry-body">
-	  	{% if content %}
-	  		{{ content }}
-  		{% else %}
-	  		{{ page.excerpt }}
-	  		{% if page.content contains '<!-- more -->' %}
-	  		<p><a href="{{ page.url }}">Read more »</a></p>
-	  		{% endif %}
-  		{% endif %}
+      {{ content }}
 	  </article>
-    </div>
+  </div>
+</div>
+
+<hr/>
+
+<div class="copyright-notice">
+  <h3 class="copyright-title">版权声明</h3>
+  <p class="copyright-content">
+    本文<span id="cur-post"></span>首发且仅发布于<a href="https://priesttomb.github.io/">没有名字的博客</a>，<b>禁止一切形式的转载</b>。<br>
+    少一次无脑的转载，中文圈就少一些重复又恶心的搜索结果。
+  </p>
 </div>
 
 <hr/>
@@ -83,6 +86,12 @@ var gitalk = new Gitalk({
 })
 
 gitalk.render('gitalk-container')
+
+// 新增版权声明相关
+var curPostTitle = document.title;
+var curPostUrl = window.location.href;
+document.getElementById("cur-post").innerHTML = "<a href='"+curPostUrl+"'>《"+curPostTitle+"》</a>";
+
 </script>
 
 

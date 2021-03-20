@@ -563,6 +563,16 @@ table tfoot td {
   color: #858585;
 }
 
+.copyright-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.copyright-content {
+  margin-bottom: 10px;
+  line-height: 200%;
+}
+
 @media all and (max-width: 1300px) {
     #site-title img {
         width: 25px;
