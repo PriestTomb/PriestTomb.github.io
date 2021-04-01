@@ -124,6 +124,6 @@ Logstash 报错日志：
 
 # 解决问题
 
-既然验证了这个看似奇葩的问题是由 inode 重用导致，那就可以按官方的推荐（在查看官方的配置说明时，刚好找到了官方对这个问题的说明：[Inode reuse causes Filebeat to skip lines?](https://www.elastic.co/guide/en/beats/filebeat/current/faq.html#inode-reuse-issue)），使用 `clean_inactive` 和 `clean_removed` 这两个配置来解决这个问题
+既然验证了这个看似奇葩的问题是由 inode 重用导致，那就可以按官方的推荐（在查看官方的配置说明时，刚好找到了官方对这个问题的说明：[Inode reuse causes Filebeat to skip lines?](https://www.elastic.co/guide/en/beats/filebeat/current/inode-reuse-issue.html)），使用 `clean_inactive` 和 `clean_removed` 这两个配置来解决这个问题
 
 给这两个配置指定了时间，就代表在这个时间之后，Filebeat 将从 registry 文件中自动删除过期的文件注册信息，这样就能避免以上问题
