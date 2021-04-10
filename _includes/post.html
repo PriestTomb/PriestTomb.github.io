@@ -74,7 +74,10 @@
 <script src="{{ site.baseurl }}/js/gitalk.min.js"></script> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="{{ site.baseurl }}/js/jquery-3.2.0.min.js"></script>
 <script src="{{ site.baseurl }}/js/md5.min.js"></script>
+<script src="{{ site.baseurl }}/js/toc.js"></script>
+<script src="{{ site.baseurl }}/js/jquery.nav.js"></script>
 <script>
 var gitalk = new Gitalk({
   clientID: '7b297c5236c92234b2fa',
@@ -92,6 +95,25 @@ var curPostTitle = document.title;
 var curPostUrl = window.location.href;
 document.getElementById("cur-post").innerHTML = "<a href='"+curPostUrl+"'>《"+curPostTitle+"》</a>";
 
+// 新增目录
+$(document).ready(function() {
+    $('#toc').toc({ noBackToTopLinks: true });
+    // 自动悬浮在顶端
+    var tocDiv = document.getElementById("toc"), H = 0, Y = tocDiv;
+    while (Y) {
+        H += Y.offsetTop;
+        Y = Y.offsetParent;
+    }
+    window.onscroll = function() {
+        var s = document.body.scrollTop || document.documentElement.scrollTop;
+        if(s>H) {
+            tocDiv.style = "position:fixed;top:10px;";
+        } else {
+            tocDiv.style = "";
+        }
+    }
+    $('#toc').onePageNav();
+});
 </script>
 
 

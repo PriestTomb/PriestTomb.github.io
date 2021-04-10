@@ -238,6 +238,35 @@ table tfoot td {
     }
 }
 
+.toc {
+    width: 14em;
+    margin-left: -15em;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    a {
+      font-size: 14px;
+      color: #000;
+    }
+
+    .current {
+      background-color: #F8F8F8;
+      border-left: 2px solid;
+      border-left-color: #ff6161;
+    }
+
+    .current > a {
+      font-size: 14px;
+      color: #E34E48;
+      padding: 0px 1px;
+    }
+
+    .sub-ol {
+      margin-left: 8px;
+    }
+}
+
 /** avatar **/
 .avatar {
     width: 12em;
@@ -571,6 +600,26 @@ table tfoot td {
 .copyright-content {
   margin-bottom: 10px;
   line-height: 200%;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
 }
 
 @media all and (max-width: 1300px) {
