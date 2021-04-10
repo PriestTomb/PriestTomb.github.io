@@ -345,7 +345,21 @@ end
 
 整体分为两步，第一步，读客户端从队列中拉取一部分数据，第二步，执行过滤器、输出插件的处理逻辑。
 
-先看读客户端是怎么拉取数据的，`filter_queue_client` 同样是定义在上面提到的 AbstractPipelineExt 类中，它返回了步骤 2 中初始化的 JrubyMemoryReadClientExt 对象（这里额外插一句，初始化时代码中写死了 batchSize 和 waitForMillis 两个参数，就是说 Logstash 配置文件中的该参数不会生效，原因是开发人员经过一定的测试，选定了一个他们认为性能较好配置），该类的 readBatch 方法如下：
+先看读客户端是怎么拉取数据的，`filter_queue_client` 同样是定义在上面提到的 AbstractPipelineExt 类中，它返回了步骤 2 中初始化的 JrubyMemoryReadClientExt 对象~~（这里额外插一句，初始化时代码中写死了 batchSize 和 waitForMillis 两个参数，就是说 Logstash 配置文件中的该参数不会生效，原因是开发人员经过一定的测试，选定了一个他们认为性能较好配置）~~
+
+--- update 2021-04-10 ---
+
+关于 Java 代码中写死的 batchSize 和 waitForMillis 两个参数，经过一些测试后，发现 logstash.yml 中配置了之后，实际是会生效的，于是回过头来继续看看是怎么回事。
+
+这个文件的[第一次提交](https://github.com/elastic/logstash/pull/8991/files/bfcfdabfaf58414abd3ec70bebb94a2972f57b0d)是源自他们在 Logstash 6.0 版本后从 Ruby 代码更新成 Java 实现，Ruby代码里最早就写成了两个固定值，batchSize = 125，waitForMillis = 5，而 [Issue #8707](https://github.com/elastic/logstash/issues/8707) 和 [PR #8702](https://github.com/elastic/logstash/pull/8702) 当时测试的主要是 waitForMillis 由 5 毫秒调整为 50 毫秒，batchSize 125 还是延续了以前的设定。
+
+那么重点来了，这两个值在代码里初始化时写死，可以说是一个历史遗留问题，那为什么没人去改正它们，因为对 `pipeline.batch.size` 和 `pipeline.batch.delay` 这两个参数来说，其实是在 Ruby 代码里设置的，也就在上面的 pipeline.rb 文件的 `worker_loop` 方法的第一行 `filter_queue_client.set_batch_dimensions(batch_size, batch_delay)`，看代码的时候不小心忽视了这一行，翻看了其 Java 部分的代码，该 `set_batch_dimensions` 方法是在 JrubyMemoryReadClientExt.java 类的父类中定义的。
+
+所以，简单来说，读客户端初始化时，代码中直接搬老版 Ruby 代码的做法，写死了两个参数，但最终在插件运行时，还会重新将两个参数设置成 logstash.yml 文件中配置的数值。
+
+就是这样，错误修正结束，下面回到原文。
+
+该类的 readBatch 方法如下：
 
 ```java
 @Override
