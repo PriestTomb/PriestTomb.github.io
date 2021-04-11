@@ -112,7 +112,21 @@ $(document).ready(function() {
             tocDiv.style = "";
         }
     }
-    $('#toc').onePageNav();
+    $('#toc').onePageNav({
+      scrollThreshold: 0.7,
+      scrollChange: function($currentListItem) {
+        setTimeout(() => {
+          // 当前元素与 toc 顶部的高度差
+          var diffHeight = $currentListItem.offset().top - $('#toc').offset().top;
+          var tocHeight = $('#toc').height();
+          var endDiffHeight = Math.round(tocHeight / 2);
+
+          if (diffHeight > tocHeight || diffHeight <= 0) {
+            $('#toc').animate({ scrollTop: "+=" + (diffHeight - endDiffHeight) }, 500);
+          }
+        }, 100);
+      }
+    });
 });
 </script>
 
