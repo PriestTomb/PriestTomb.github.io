@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 从 duration_in_millis 看 Logstash 的运行原理
+title: 从源码学习 Logstash 内存式队列的运行原理
 date: 2021-01-03
 categories:
 - 技术
