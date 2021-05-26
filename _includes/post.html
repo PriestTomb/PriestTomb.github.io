@@ -48,9 +48,8 @@
   </div>
 </div>
 
-<hr/>
-
-<div class="copyright-notice">
+<div id="copyright" class="copyright-notice">
+  <hr/>
   <h3 class="copyright-title">版权声明</h3>
   <p class="copyright-content">
     本文<span id="cur-post"></span>首发且仅发布于<a href="https://priesttomb.github.io/">没有名字的博客</a>，<b>禁止一切形式的转载</b>。<br>
@@ -94,6 +93,8 @@ gitalk.render('gitalk-container')
 var curPostTitle = document.title;
 var curPostUrl = window.location.href;
 document.getElementById("cur-post").innerHTML = "<a href='"+curPostUrl+"'>《"+curPostTitle+"》</a>";
+// 把版权声明添加到<article>中
+$("article").append($("#copyright"));
 
 // 新增目录
 $(document).ready(function() {
