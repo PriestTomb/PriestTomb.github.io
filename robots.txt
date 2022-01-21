@@ -19,3 +19,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://priesttomb.github.io/sitemap.xml
