@@ -1,5 +1,8 @@
 User-agent: Googlebot
-Allow: /$
+Allow: /
 
 User-agent: Baiduspider
-Allow: /$
+Allow: /
+
+User-agent: *
+Allow: /
