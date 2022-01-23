@@ -7,10 +7,6 @@ tags: [ELK, Logstash, Kibana]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 接上篇[《多个Logstash实例在Kibana上只显示出一个》](https://priesttomb.github.io/%E5%B0%8F%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/2019/04/25/multi-logstash-instance-but-only-show-one-on-kibana/)，使用了不同的 uuid，显示了多个 Logstash Node 之后，发现 Pipelines 这项也是只显示了一个，点进去可以看到 Number of Nodes 又显示了多个

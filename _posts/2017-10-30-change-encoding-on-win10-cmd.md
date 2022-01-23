@@ -8,10 +8,6 @@ tags: [windows]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 之前编译 WebService 客户端代码时发现 Win10 的控制台有乱码，平时习惯 Win + R 输 cmd 的方式打开默认的 cmd 控制台，发现乱码后又看了眼管理员模式，发现不是乱码：

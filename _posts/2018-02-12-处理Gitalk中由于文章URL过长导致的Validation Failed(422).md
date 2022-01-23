@@ -8,10 +8,6 @@ tags: [jekyll博客]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 之前博客中使用 gitment 作评论时，遇到过这个报错：

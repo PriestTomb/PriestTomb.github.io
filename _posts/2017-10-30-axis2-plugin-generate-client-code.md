@@ -8,10 +8,6 @@ tags: [WebService]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 #### 1. 下载 jar 包

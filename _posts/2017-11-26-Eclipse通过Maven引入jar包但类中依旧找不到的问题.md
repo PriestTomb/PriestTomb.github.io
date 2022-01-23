@@ -8,10 +8,6 @@ tags: [Eclipse, Maven]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 今天用 Maven 做小项目时遇到个非常奇怪的问题：

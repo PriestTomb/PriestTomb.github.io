@@ -8,10 +8,6 @@ tags: [Logstash]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: priesttomb@gmail.com
-  display_name: PriestTomb
 ---
 
 # 1 写在前面

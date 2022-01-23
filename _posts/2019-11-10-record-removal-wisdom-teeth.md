@@ -8,10 +8,6 @@ tags: [为医学献身]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 # 写在前面

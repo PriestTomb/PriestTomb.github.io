@@ -8,10 +8,6 @@ tags: [瞎唠叨]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 # 1 写在前面

@@ -8,10 +8,6 @@ tags: [html, thymeleaf, exception]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 # 1 诡异的异常

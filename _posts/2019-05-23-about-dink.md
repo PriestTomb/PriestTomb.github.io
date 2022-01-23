@@ -7,10 +7,6 @@ tags: [关于自己]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 > 丁客族（英语: DINK / DINKY）是一个1950年代起源于欧美、在1980年代传入亚洲的生活型态名词，由英文DINK音译而来，亦翻为顶客族，或是丁克家庭。DINK是“Dual（或Double） Income, No Kids”的缩写，意为“双薪水、无子女”的夫妻。 —— [wiki · 丁克族](https://zh.wikipedia.org/wiki/%E9%A0%82%E5%AE%A2%E6%97%8F)

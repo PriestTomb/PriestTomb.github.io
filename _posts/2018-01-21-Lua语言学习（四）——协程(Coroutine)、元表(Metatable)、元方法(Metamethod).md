@@ -8,10 +8,6 @@ tags: [Lua脚本]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 **这一篇同样是根据[ Lua-Users wiki ](http://lua-users.org/wiki/TutorialDirectory)梳理的一些细节**

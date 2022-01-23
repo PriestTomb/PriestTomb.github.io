@@ -7,10 +7,6 @@ tags: [SpringCloud, Zuul, Ribbon, Feign, Hystrix]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 ## 写在前面

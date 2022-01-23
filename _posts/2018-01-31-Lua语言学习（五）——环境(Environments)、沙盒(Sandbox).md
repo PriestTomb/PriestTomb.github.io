@@ -8,10 +8,6 @@ tags: [Lua脚本]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 **这一篇结合了好多篇东西。。说明下关于 Lua 中的环境和沙盒相关的内容**

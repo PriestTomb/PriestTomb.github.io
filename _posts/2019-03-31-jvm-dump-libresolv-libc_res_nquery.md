@@ -8,10 +8,6 @@ tags: [Java, dump]
 status: publish
 type: post
 published: true
-author:
-  login: PriestTomb
-  email: mxingzh@163.com
-  display_name: PriestTomb
 ---
 
 写了个 Quartz 实现的定时程序，打包到服务器上启动时发现会崩溃，本地测试都没毛病，之前服务器上启动也不会崩，搞不懂是不是服务器最近改了什么配置，反正先看看报错：
