@@ -50,5 +50,4 @@ firebase:
   app_id: 1:814452624014:web:0981e9e16b1a7aac
 
 plugins:
-  - jekyll-redirect-from
   - jekyll-paginate
