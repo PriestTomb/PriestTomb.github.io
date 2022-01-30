@@ -1,22 +1,3 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Baiduspider
-Disallow: /*?*
-Disallow: /pat/list*
-Disallow: /pat/getPatentDetail*
-Disallow: /pat/school*
-Disallow: /brand/list*
-Disallow: /buyRequest/buy_list*
-Disallow: /zhuanli/*
-Disallow: /report/*
-Disallow: /LatestPatent/*
-Disallow: /latestBrand/*
-Disallow: /smallImg/*
-Allow: /news/newsList*
-Allow: /news/newsPreview*
-Allow: /
-
 User-agent: *
 Allow: /
 
