@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 《内向不好吗》书摘
-date: 2022-01-23
+date: 2022-02-15
 categories:
 - 书摘
 tags: [内向不好吗, 南仁淑]
