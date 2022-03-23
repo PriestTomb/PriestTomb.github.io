@@ -14,6 +14,11 @@ published: true
 
 在写 Logstash 插件的过程中，借鉴和学习到一些 JRuby 的书写技巧，随手记录一下，仅供参考。
 
+
+---
+
+<h3>混入防转防爬防抄袭声明：本文<a href="https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2022/03/23/logstash-plugin-jruby-operate-file/">《Logstash 插件(JRuby)-文件操作》</a>首发且仅发布于<a href="https://priesttomb.github.io/">没有名字的博客</a></h3>
+
 ---
 
 # 2 文件操作
