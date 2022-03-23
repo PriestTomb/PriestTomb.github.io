@@ -12,11 +12,11 @@ published: true
 
 # 1 竟然死锁
 
-一个简单的批量审核功能，测试时没问题，线上环境给人演示的时候突然报错，一时让人尴尬，登服务器查后台报错日志：
+项目中有一个简单的批量审核功能，自己测试时没问题，在给同事演示的时候突然就有报错，一时让人尴尬，于是登到服务器，查一下后台的报错日志：
 
 ```
-Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException: Deadlock found when trying to get lock; try restarting transaction
-
+Cause: com.mysql.jdbc.exceptions.jdbc4. MySQLTransactionRollbackException :
+Deadlock found when trying to get lock; try restarting transaction
 ```
 
 居然出现死锁了？之前默认按批量 20 的操作，这次想批量快一点，选了 100，难道这就有问题了？
