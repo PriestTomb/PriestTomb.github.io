@@ -57,22 +57,19 @@ blockquote {
 
 /* table */
 table {
-  border: 1px solid #000000;
+  border: 1px solid #dee2e6;
   border-collapse: collapse;
 }
 table td, table th {
-  border: 1px solid #000000;
-  padding: 5px 4px;
-}
-table tr:nth-child(even) {
-  background: #F2F2F2;
+  border: 1px solid #dee2e6;
+  padding: 0.4rem;
 }
 table thead {
-  background: #696969;
+  background: #e9ecef;
 }
 table thead th {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #000000;
   text-align: center;
 }
 table tfoot td {
