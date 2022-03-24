@@ -20,9 +20,11 @@ author_footer: false
 >
 > 爱好广泛无一专精之典范 / 花鸟鱼虫随手拍爱好者
 
-英语还没学好，日语尚未入门
+English proficiency is stagnant
 
-主攻 Java，干过 Lua
+まだゆっくりと日本語を勉強しています
+
+搬砖主要靠 Java，做游戏还用过 Lua，写前端只会 JavaScript，搞 Logstash 会点 Ruby
 
 ---
 
