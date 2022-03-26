@@ -2,7 +2,7 @@
 layout: post
 title: 使用Nginx为Elasticsearch集群做负载均衡及安全控制
 date: 2019-06-22
-categories: [方案设计实践]
+categories: [技术]
 tags: [ELK, Nginx, Elasticsearch]
 status: publish
 type: post

@@ -3,8 +3,8 @@ layout: post
 title: Lua语言学习（四）——协程(Coroutine)、元表(Metatable)、元方法(Metamethod)
 date: 2018-01-21
 categories:
-- 游戏开发
-tags: [Lua脚本]
+- 技术
+tags: [Lua]
 status: publish
 type: post
 published: true

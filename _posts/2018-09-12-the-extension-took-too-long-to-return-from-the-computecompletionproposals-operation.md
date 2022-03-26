@@ -3,7 +3,7 @@ layout: post
 title: Eclipse代码补全超时报错问题(too long to return from the computeCompletionProposals operation)
 date: 2018-09-12
 categories:
-- 编程工具
+- 技术
 tags: [Eclipse]
 status: publish
 type: post

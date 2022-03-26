@@ -2,7 +2,7 @@
 layout: post
 title: Zuul、Ribbon、Feign、Hystrix使用时的超时时间(timeout)设置问题
 date: 2018-09-19
-categories: [分布式]
+categories: [技术]
 tags: [SpringCloud, Zuul, Ribbon, Feign, Hystrix]
 status: publish
 type: post

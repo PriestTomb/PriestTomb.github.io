@@ -3,7 +3,7 @@ layout: post
 title: Eclipse安装Axis2插件并生成客户端代码
 date: 2017-10-30
 categories:
-- 后端技术
+- 技术
 tags: [WebService]
 status: publish
 type: post

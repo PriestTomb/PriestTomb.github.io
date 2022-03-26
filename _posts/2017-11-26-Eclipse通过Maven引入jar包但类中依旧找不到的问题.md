@@ -3,7 +3,7 @@ layout: post
 title: Eclipse通过Maven引入jar包但类中依旧找不到的问题
 date: 2017-11-26
 categories:
-- 编程工具
+- 技术
 tags: [Eclipse, Maven]
 status: publish
 type: post

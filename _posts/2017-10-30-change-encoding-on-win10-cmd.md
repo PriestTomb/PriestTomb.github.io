@@ -3,7 +3,7 @@ layout: post
 title: Win10控制台乱码问题
 date: 2017-10-30
 categories:
-- 系统环境
+- 技术
 tags: [windows]
 status: publish
 type: post

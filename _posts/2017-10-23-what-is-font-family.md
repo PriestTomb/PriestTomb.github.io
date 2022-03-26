@@ -3,7 +3,7 @@ layout: post
 title: CSS-当后端程序猿遭遇font-family
 date: 2017-10-23
 categories:
-- 乱七八糟的前端
+- 技术
 tags: [CSS]
 status: publish
 type: post

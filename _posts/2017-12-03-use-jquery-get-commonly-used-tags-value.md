@@ -3,7 +3,7 @@ layout: post
 title: 使用jQuery获取常用标签中的值
 date: 2017-12-03
 categories:
-- 乱七八糟的前端
+- 技术
 tags: [jQuery]
 status: publish
 type: post

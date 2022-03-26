@@ -3,7 +3,7 @@ layout: post
 title: 使用搬瓦工(bandwagon)的CN2线路
 date: 2017-11-11
 categories:
-- 系统环境
+- 技术
 tags: [VPS]
 status: publish
 type: post

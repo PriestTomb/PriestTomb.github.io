@@ -3,7 +3,7 @@ layout: post
 title: Java-玩玩WebService
 date: 2017-10-27
 categories:
-- 后端技术
+- 技术
 tags: [Java, WebService]
 status: publish
 type: post

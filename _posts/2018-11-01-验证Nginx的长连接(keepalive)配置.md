@@ -2,7 +2,7 @@
 layout: post
 title: 验证Nginx的长连接(keepalive)配置
 date: 2018-11-01
-categories: [Web服务器]
+categories: [技术]
 tags: [Nginx, keepalive, wireshark]
 status: publish
 type: post

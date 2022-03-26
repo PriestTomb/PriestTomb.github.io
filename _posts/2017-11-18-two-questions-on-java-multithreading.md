@@ -3,7 +3,7 @@ layout: post
 title: java多线程中的两个疑问
 date: 2017-11-18
 categories:
-- 后端技术
+- 技术
 tags: [Java, 线程]
 status: publish
 type: post

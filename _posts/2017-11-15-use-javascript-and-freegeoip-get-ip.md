@@ -3,8 +3,8 @@ layout: post
 title: 纯JavaScript获取IP(通过freegeoip)
 date: 2017-11-15
 categories:
-- 乱七八糟的前端
-tags: [JavaScript, 获取IP]
+- 技术
+tags: [JavaScript, freegeoip, ipify]
 status: publish
 type: post
 published: true

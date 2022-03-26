@@ -2,7 +2,7 @@
 layout: post
 title: 多个Logstash实例在Kibana上只显示出一个
 date: 2019-04-25
-categories: [小问题处理]
+categories: [技术]
 tags: [ELK, Logstash, Kibana]
 status: publish
 type: post

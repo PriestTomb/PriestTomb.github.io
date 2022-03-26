@@ -3,8 +3,8 @@ layout: post
 title: Lua语言学习（六）——Lua中的错误处理及Debug库
 date: 2018-07-08
 categories:
-- 游戏开发
-tags: [Lua脚本]
+- 技术
+tags: [Lua]
 status: publish
 type: post
 published: true

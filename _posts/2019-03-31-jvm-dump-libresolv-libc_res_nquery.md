@@ -3,7 +3,7 @@ layout: post
 title: Java dump问题（SIGSEGV、libresolv.so.2+0x7a91、__libc_res_nquery+0x1c1）
 date: 2019-03-31
 categories:
-- 后端技术
+- 技术
 tags: [Java, dump]
 status: publish
 type: post

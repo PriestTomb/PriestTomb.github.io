@@ -3,8 +3,8 @@ layout: post
 title: Lua语言学习（二）——Number、String、操作符
 date: 2017-12-22
 categories:
-- 游戏开发
-tags: [Lua脚本]
+- 技术
+tags: [Lua]
 status: publish
 type: post
 published: true

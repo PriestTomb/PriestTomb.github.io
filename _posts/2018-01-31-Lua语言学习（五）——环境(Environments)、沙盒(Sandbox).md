@@ -3,8 +3,8 @@ layout: post
 title: Lua语言学习（五）——环境(Environments)、沙盒(Sandbox)
 date: 2018-01-31
 categories:
-- 游戏开发
-tags: [Lua脚本]
+- 技术
+tags: [Lua]
 status: publish
 type: post
 published: true

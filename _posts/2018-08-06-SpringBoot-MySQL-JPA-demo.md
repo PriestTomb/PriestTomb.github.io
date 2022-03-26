@@ -3,8 +3,8 @@ layout: post
 title: SpringBoot+MySQL+JPA的一个小Demo
 date: 2018-08-06
 categories:
-- 小代码
-tags: [SpringBoot]
+- 技术
+tags: [SpringBoot, MySQL, JPA]
 status: publish
 type: post
 published: true
