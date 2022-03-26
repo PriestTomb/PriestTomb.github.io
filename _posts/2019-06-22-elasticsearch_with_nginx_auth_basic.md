@@ -37,7 +37,7 @@ Nginx 的使用可以为小型 Elasticsearch (下文简称 ES)集群提供负载
 
 ### 1. 配置 Nginx 负载均衡
 
-Nginx 的安装使用这里就不再赘述，在之前的[《Nginx学习总结》](https://priesttomb.github.io/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2018/11/12/Nginx%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)中有简单的介绍编译安装步骤
+Nginx 的安装使用这里就不再赘述，在之前的[《Nginx学习总结》](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2018/11/12/Nginx%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/)中有简单的介绍编译安装步骤
 
 编辑 nginx.conf，配置 ES 集群的各主机地址
 

@@ -12,7 +12,7 @@ published: true
 
 ## 写在前面
 
-之前用 JPA 体验了一下 SpringBoot（[这篇](https://priesttomb.github.io/%E5%B0%8F%E4%BB%A3%E7%A0%81/2018/08/06/SpringBoot-MySQL-JPA-demo/)），最近也想试试 MyBatis，就在上一个 demo 的基础上改用 MyBatis 实现了一下。
+之前用 JPA 体验了一下 SpringBoot（[这篇](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2018/08/06/SpringBoot-MySQL-JPA-demo/)），最近也想试试 MyBatis，就在上一个 demo 的基础上改用 MyBatis 实现了一下。
 
 ---
 

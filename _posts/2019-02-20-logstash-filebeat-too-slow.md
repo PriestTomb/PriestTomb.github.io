@@ -11,7 +11,7 @@ published: true
 
 # 写在前面
 
-上篇博客[《写了个简单的logstash-output-rocketmq插件》](https://priesttomb.github.io/%E5%B0%8F%E4%BB%A3%E7%A0%81/2019/01/06/logstash-output-rocketmq/)中说到，最近用到了 Filebeat + Logstash 做日志采集，在测试阶段，有一个场景：预先生成一个 1G 大小的日志文件，其中单行数据（即一条日志） 50 kb，让 Filebeat 和 Logstash 去采集，观察性能和机器的负载
+上篇博客[《写了个简单的logstash-output-rocketmq插件》](https://priesttomb.github.io/%E6%8A%80%E6%9C%AF/2019/01/06/logstash-output-rocketmq/)中说到，最近用到了 Filebeat + Logstash 做日志采集，在测试阶段，有一个场景：预先生成一个 1G 大小的日志文件，其中单行数据（即一条日志） 50 kb，让 Filebeat 和 Logstash 去采集，观察性能和机器的负载
 
 测试后，发现一个很奇怪的现象，**每隔 40-50 秒才会处理一批数据**，因为 Logstash 的输出插件是新写的，加了一些测试用的输出代码，所以初步观察后发现，输出插件只在 1-2 秒内就能快速处理完这一批数据，那么问题就来了——**到底是什么原因导致处理数据这么慢？**
 
