@@ -321,6 +321,33 @@ table tfoot td {
   text-align: left;
 }
 
+/* 404 page search */
+.page404-search {
+  // width: 12em;
+  // display: block;
+}
+
+.page404-search-icon {
+  position: absolute;
+  // margin-top: 5px;
+  margin-left: 5px;
+}
+
+.page404-search-input {
+  border: 2px solid #363636;
+  border-radius: 5px;
+  height: 30px;
+  width: 300px;
+  padding-left: 20px;
+}
+
+.page404-search-results {
+  width: 100%;
+  display: block;
+  text-align: left;
+  margin: 15px 0 !important;
+}
+
 /**  **/
 .google-ad {
   width: 15em;
