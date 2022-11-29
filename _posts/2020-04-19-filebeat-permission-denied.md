@@ -40,6 +40,10 @@ published: true
 
 `usermod -G biz_beats filebeat`
 
+**---update 2022.11.29---**
+
+命令最好使用 `usermod -Ga`，多一个 `-a` 表示追加，这样不会导致完全变掉原先用户所属的组，比如 **sudo**
+
 ### 2. 修改 biz 用户 home 目录所属用户组
 
 `chown biz.biz_beats /home/biz/ -R`
